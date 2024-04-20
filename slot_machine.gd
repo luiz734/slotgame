@@ -8,27 +8,40 @@ extends Node2D
 @export var vertical_separation = 20
 @export var sprite_size_y = 128
 
-var state = "IMPULSING"
+enum State {running, stopped}
+var state
 var base_position_y = 0.0
 var _tiles: Array[Node]
+var tiles_moved = 1
 
-
-
+func get_color(i):
+    if i == 0: return Color.RED
+    if i == 1: return Color.GREEN
+    if i == 2: return Color.BLUE
+func get_n(i):
+    if i == 0: return "RED"
+    if i == 1: return "GREEN"
+    if i == 2: return "BLUE"
 func _ready():
     assert(tile_prefab)
+    state = State.stopped
     
     for i in range(n_tiles):
         var tile = tile_prefab.instantiate()
-        tile.self_modulate = Color(randf(), randf(), randf())
+        tile.modulate = get_color(i)
         _tiles.push_back(tile)
         tile.position = Vector2(0, -i * (sprite_size_y))
         add_child(tile)
-        state = "RUNNING"
+        tile.name = get_n(i)
         tile.moved.connect(func(t: SlotTile):
-            var limit = 64
             if t.position.y > 64:
-                t.position = Vector2(0, -sprite_size_y * (n_tiles - 1))
-            t.move_by(Vector2(0, sprite_size_y))
+                    t.position = Vector2(0, -sprite_size_y * (n_tiles - 1))
+                    tiles_moved += 1
+            if state == State.running:
+                t.move_by(Vector2(0, sprite_size_y))
+            else:
+                t.spin_down()
+   
         )
         
 func spin():
@@ -42,7 +55,12 @@ func spin():
 
 func _process(delta):
     if Input.is_action_just_pressed("run"):
-        spin()
+        if state == State.stopped:
+            spin()
+            state = State.running
+        else:
+            print(_tiles[tiles_moved% n_tiles].name)
+            state = State.stopped
 
 func _physics_process(delta):
     pass
