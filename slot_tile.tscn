@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://cxlgt8d4b23gp"]
+
+[ext_resource type="Texture2D" uid="uid://c0cov43ivsav" path="res://icon.svg" id="1_i0ihf"]
+[ext_resource type="Script" path="res://slot_tile.gd" id="2_hmnin"]
+
+[node name="SlotTile" type="Sprite2D"]
+texture = ExtResource("1_i0ihf")
+script = ExtResource("2_hmnin")
