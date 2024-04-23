@@ -38,7 +38,7 @@ func _ready():
                     t.position = Vector2(0, -sprite_size_y * (n_tiles - 1))
                     tiles_moved += 1
             if state == State.running:
-                t.move_by(Vector2(0, sprite_size_y * 2))
+                t.move_by(Vector2(0, sprite_size_y))
             else:
                 t.spin_down()
    
