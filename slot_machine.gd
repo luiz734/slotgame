@@ -45,9 +45,9 @@ func _ready():
         )
         
 func spin():
-    #for i in range(1, len(_tiles)):
-        #_tiles[i].spin_up()
-    #await _tiles[0].spin_up()
+    for i in range(0, len(_tiles)):
+        _tiles[i].spin_up()
+    await get_tree().create_timer(0.3).timeout
     for tile in _tiles:
         tile.move_by(Vector2(0, sprite_size_y))
        
@@ -64,13 +64,3 @@ func _process(delta):
 
 func _physics_process(delta):
     pass
-    #if state == "RUNNING":
-        #base_position_y += speed * delta
-        #if base_position_y > distance_before_reset:
-            #base_position_y = 0
-        #
-        #for i in range(len(_tiles)):
-            #var tile = _tiles[i]
-            #tile.position.y += delta * speed
-            #var pos_y = base_position_y + sprite_size_y * i
-            #tile.position.y = pos_y
