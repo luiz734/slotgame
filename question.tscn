@@ -1,0 +1,105 @@
+[gd_scene load_steps=2 format=3 uid="uid://chsvsyt683la1"]
+
+[ext_resource type="Theme" uid="uid://7bhmgldpi7ub" path="res://tile-font.tres" id="1_u2ncx"]
+
+[node name="question" type="Node2D"]
+
+[node name="question" type="Control" parent="."]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -3.0
+offset_right = 1149.0
+offset_bottom = 650.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 4
+theme = ExtResource("1_u2ncx")
+
+[node name="MarginContainer" type="MarginContainer" parent="question"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 100
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 100
+theme_override_constants/margin_bottom = 50
+
+[node name="VBoxContainer3" type="VBoxContainer" parent="question/MarginContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="question/MarginContainer/VBoxContainer3"]
+layout_mode = 2
+
+[node name="questionSubject" type="Label" parent="question/MarginContainer/VBoxContainer3/VBoxContainer"]
+custom_minimum_size = Vector2(500, 100)
+layout_mode = 2
+size_flags_vertical = 1
+theme_override_font_sizes/font_size = 29
+text = "SUBJECT"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+text_overrun_behavior = 1
+
+[node name="questionLabel" type="Label" parent="question/MarginContainer/VBoxContainer3/VBoxContainer"]
+custom_minimum_size = Vector2(500, 100)
+layout_mode = 2
+size_flags_vertical = 1
+text = "mouse_pos mouse_pos mouse_pos mouse_pos mouse_pos mouse_pos mouse_pos mouse_pos?"
+vertical_alignment = 1
+autowrap_mode = 2
+text_overrun_behavior = 1
+
+[node name="Spacer" type="Control" parent="question/MarginContainer/VBoxContainer3"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="GridContainer" type="GridContainer" parent="question/MarginContainer/VBoxContainer3"]
+layout_mode = 2
+columns = 2
+
+[node name="option1" type="Label" parent="question/MarginContainer/VBoxContainer3/GridContainer"]
+custom_minimum_size = Vector2(500, 100)
+layout_mode = 2
+size_flags_vertical = 1
+text = "OPTION 1
+"
+vertical_alignment = 1
+autowrap_mode = 2
+text_overrun_behavior = 1
+
+[node name="option2" type="Label" parent="question/MarginContainer/VBoxContainer3/GridContainer"]
+custom_minimum_size = Vector2(500, 100)
+layout_mode = 2
+size_flags_vertical = 1
+text = "OPTION 1
+"
+vertical_alignment = 1
+autowrap_mode = 2
+text_overrun_behavior = 1
+
+[node name="option3" type="Label" parent="question/MarginContainer/VBoxContainer3/GridContainer"]
+custom_minimum_size = Vector2(500, 100)
+layout_mode = 2
+size_flags_vertical = 1
+text = "OPTION 1
+"
+vertical_alignment = 1
+autowrap_mode = 2
+text_overrun_behavior = 1
+
+[node name="option4" type="Label" parent="question/MarginContainer/VBoxContainer3/GridContainer"]
+custom_minimum_size = Vector2(500, 100)
+layout_mode = 2
+size_flags_vertical = 1
+text = "OPTION 1
+"
+vertical_alignment = 1
+autowrap_mode = 2
+text_overrun_behavior = 1

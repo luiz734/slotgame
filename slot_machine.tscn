@@ -1,32 +1,16 @@
-[gd_scene load_steps=3 format=3 uid="uid://dfe1scx4x88uo"]
+[gd_scene load_steps=3 format=3 uid="uid://di41ccpbftbje"]
 
 [ext_resource type="Script" path="res://slot_machine.gd" id="1_jvnfs"]
-[ext_resource type="PackedScene" uid="uid://cxlgt8d4b23gp" path="res://slot_tile.tscn" id="2_2mt6t"]
+[ext_resource type="PackedScene" uid="uid://dfe1scx4x88uo" path="res://wheel.tscn" id="1_ynmft"]
 
 [node name="SlotMachine" type="Node2D"]
 script = ExtResource("1_jvnfs")
-tile_prefab = ExtResource("2_2mt6t")
 
-[node name="ColorRect" type="ColorRect" parent="."]
-z_index = 1
-offset_left = -313.0
-offset_top = -192.0
-offset_right = 313.0
-offset_bottom = -64.0
-color = Color(0.247059, 1, 1, 0.164706)
+[node name="Wheel" parent="." instance=ExtResource("1_ynmft")]
+position = Vector2(-333, 0)
 
-[node name="ColorRect2" type="ColorRect" parent="."]
-z_index = 1
-offset_left = -314.0
-offset_top = -541.0
-offset_right = 314.0
-offset_bottom = -192.0
-color = Color(0.219608, 0.219608, 0.219608, 0.392157)
+[node name="Wheel2" parent="." instance=ExtResource("1_ynmft")]
+position = Vector2(-2, 0)
 
-[node name="ColorRect3" type="ColorRect" parent="."]
-z_index = 1
-offset_left = -314.0
-offset_top = -64.0
-offset_right = 314.0
-offset_bottom = 385.0
-color = Color(0.219608, 0.219608, 0.219608, 0.392157)
+[node name="Wheel3" parent="." instance=ExtResource("1_ynmft")]
+position = Vector2(324, 0)

@@ -2,13 +2,14 @@ class_name SlotTile
 extends Node2D
 
 signal moved(tile)
-@onready var animation_player: AnimationPlayer = $AnimationPlayer
+@onready var label: Label = $Label
 
 func _ready():
-    pass
+    assert(label, "missing label reference")
     
-func set_animation_speed_scale(scale: float) -> void:
-    animation_player.speed_scale = scale
+func set_label_text(value: String) -> void:
+    await self.ready
+    label.text = value
 
 func move_to(to: Vector2, duration_sec: float):
     var tween: Tween = get_tree().create_tween()
