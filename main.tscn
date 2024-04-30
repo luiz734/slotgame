@@ -5,4 +5,4 @@
 [node name="main" type="Node2D"]
 
 [node name="SlotMachine" parent="." instance=ExtResource("1_lyo8y")]
-position = Vector2(582, 275)
+position = Vector2(600, 437)
