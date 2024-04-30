@@ -10,23 +10,23 @@ tile_prefab = ExtResource("2_2mt6t")
 [node name="ColorRect" type="ColorRect" parent="."]
 z_index = 1
 offset_left = -313.0
-offset_top = -64.0
+offset_top = -192.0
 offset_right = 313.0
-offset_bottom = 64.0
+offset_bottom = -64.0
 color = Color(0.247059, 1, 1, 0.164706)
 
 [node name="ColorRect2" type="ColorRect" parent="."]
 z_index = 1
 offset_left = -314.0
-offset_top = -413.0
+offset_top = -541.0
 offset_right = 314.0
-offset_bottom = -64.0
-color = Color(0.219608, 0.219608, 0.219608, 1)
+offset_bottom = -192.0
+color = Color(0.219608, 0.219608, 0.219608, 0.392157)
 
 [node name="ColorRect3" type="ColorRect" parent="."]
 z_index = 1
 offset_left = -314.0
-offset_top = 64.0
+offset_top = -64.0
 offset_right = 314.0
-offset_bottom = 513.0
-color = Color(0.219608, 0.219608, 0.219608, 1)
+offset_bottom = 385.0
+color = Color(0.219608, 0.219608, 0.219608, 0.392157)

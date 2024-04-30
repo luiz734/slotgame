@@ -17,15 +17,12 @@ func move_to(to: Vector2):
 #func spin(texture_size: float):
     #tile.move_by(Vector2(0, sprite_size_y))
 
-
 func move_by(by: Vector2):
   move_to(position + by)
   
 func spin_up():
-    var tween = get_tree().create_tween()
-    tween.set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_QUAD)
-    tween.tween_property(self, "position", position + Vector2(0, -64), 0.7)
-    await tween.finished
+    animation_player.play("spin_up")
+    await animation_player.animation_finished
     
 func spin_down():
     animation_player.play("spin_down")

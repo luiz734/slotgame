@@ -12,7 +12,7 @@ enum State {running, stopped}
 var state
 var base_position_y = 0.0
 var _tiles: Array[Node]
-var tiles_moved = 1
+var tiles_moved = 2
 
 func get_color(i):
     if i == 0: return Color.RED
@@ -59,7 +59,7 @@ func _process(delta):
             spin()
             state = State.running
         else:
-            print(_tiles[tiles_moved% n_tiles].name)
+            print(_tiles[tiles_moved % n_tiles].name)
             state = State.stopped
 
 func _physics_process(delta):
