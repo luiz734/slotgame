@@ -8,4 +8,4 @@ script = ExtResource("1_jvnfs")
 
 [node name="Wheel" parent="." instance=ExtResource("1_ynmft")]
 position = Vector2(324, 0)
-values = Array[String](["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"])
+values = Array[String](["0", "1", "2", "3", "4", "5"])
