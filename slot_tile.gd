@@ -3,6 +3,8 @@ extends Node2D
 
 signal moved(tile)
 @onready var label: Label = $Label
+var target_position: Vector2
+
 
 func _ready():
     assert(label, "missing label reference")

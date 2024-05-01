@@ -6,4 +6,5 @@
 position = Vector2(16, 0)
 
 [node name="SlotMachine" parent="." instance=ExtResource("1_lyo8y")]
-position = Vector2(579, 344)
+position = Vector2(566, 474)
+scale = Vector2(0.5, 0.5)
