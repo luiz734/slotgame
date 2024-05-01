@@ -15,7 +15,12 @@ func test_create_n_tiles():
 func test_get_swapable_indexes():
     var double_wheel = partial_double(WheelPrefab).instantiate()
     # visible_tile_index, n_tiles
-    assert_eq(double_wheel.get_swapable_indexes(0, 7), [2, 3, 4], "index 0 visible")
-    assert_eq(double_wheel.get_swapable_indexes(6, 7), [1, 2, 3], "index n_tiles-1 visible")
-    assert_eq(double_wheel.get_swapable_indexes(2, 4), [], "no swapables")
-    assert_eq(double_wheel.get_swapable_indexes(3, 5), [0], "1 swapable")
+    assert_eq(double_wheel.get_swapable_indexes(0, 7), [2, 3, 4, 5], "index 0 visible")
+    assert_eq(double_wheel.get_swapable_indexes(6, 7), [1, 2, 3, 4], "index n_tiles-1 visible")
+    assert_eq(double_wheel.get_swapable_indexes(2, 4), [0], "no swapables")
+    assert_eq(double_wheel.get_swapable_indexes(3, 5), [0, 1], "1 swapable")
+
+func test_get_visible_tile_index():
+    var double_wheel = partial_double(WheelPrefab).instantiate()
+    #assert_eq(double_wheel.get_visible_tile_index(0), [2, 3, 4], "index 0 visible")
+    # visible_tile_index, n_tiles

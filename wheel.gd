@@ -26,6 +26,7 @@ var movement_duration: float = 1.0 / tiles_per_sec
 var tile_y_separation: float = 32.0
 
 func _ready():
+    seed(0)
     assert(tile_prefab, "missing tile prefab")
     n_tiles = len(values)
     tiles_base_y_position = get_tiles_position_y(sprite_size_y, vertical_separation, n_tiles)
@@ -60,7 +61,7 @@ func get_swapable_indexes(visible_tile_index: int, n_tiles: int) -> Array[int]:
     var swapable_indexes: Array[int] = []
     var count = 0
     var index = (visible_tile_index + 1) % n_tiles
-    while count < n_tiles - 4:
+    while count < n_tiles - 3:
         index = (index + 1) % n_tiles
         if index >= n_tiles:
             index = 0
@@ -68,26 +69,32 @@ func get_swapable_indexes(visible_tile_index: int, n_tiles: int) -> Array[int]:
         count += 1
     print(swapable_indexes)
     return swapable_indexes 
+
+func get_visible_tile_index(current_visible: int) -> int:
+    return current_visible + n_tiles - BELLOW_VISIBLE
     
 func swap_random_tiles():
-    if n_tiles > 4:
-        var current_tile_index = null   
-        var swapable = get_swapable_indexes(current_tile_index, n_tiles)
-        var index_a = swapable.pick_random()
-        var index_b = swapable.pick_random()
-        print(current_tile_index, values[index_a], values[index_b]) 
-        var a_pos = _tiles[index_a].position
-        _tiles[index_a].position = _tiles[index_b].position
-        _tiles[index_b].position = a_pos    
+    var swapable = get_swapable_indexes(current_visible, n_tiles)
+    if len(swapable) < 2:
+        return
+    var index_a = swapable.pick_random()
+    var index_b = swapable.pick_random()
+    print(current_visible, "->", values[index_a], " ", values[index_b]) 
+    var a_pos = _tiles[index_a].position
+    _tiles[index_a].position = _tiles[index_b].position
+    _tiles[index_b].position = a_pos
+    var tmp = _tiles[index_a]
+    _tiles[index_a] = _tiles[index_b]
+    _tiles[index_b] = tmp
         
 
 func stop():
     state = State.stopped
-    speed = 32.0
+    speed = 800.0
        
 func spin():
     state = State.spinning
-    speed = 32.0
+    speed = 800.0
     # spin up animation
     #for i in range(1, len(_tiles)):
         #_tiles[i].spin_up(movement_duration * 2.0)
@@ -113,8 +120,8 @@ func move_wheel(delta: float):
             t.position.y += delta * speed
             if t.position.y > 0:
                 t.position.y = tiles_base_y_position[n_tiles - 1]
+                swap_random_tiles()
                 current_visible  = (current_visible + 1) % n_tiles
-            #swap_random_tiles()
            
 
 
