@@ -43,7 +43,7 @@ signal stopped
 
 # Adjusts tile size to viewport
 @onready var size := get_viewport_rect().size
-@onready var tile_size := size / Vector2(reels, tiles_per_reel)
+@onready var tile_size := size / Vector2(reels, reels)
 # Normalizes the speed for consistancy independent of the number of tiles
 @onready var speed_norm := speed * tiles_per_reel
 # Add additional tiles outside the viewport of each reel for smooth animation
@@ -73,6 +73,7 @@ var runs_stopped := 0
 var total_runs : int
 
 func _ready():
+    seed(0)
     # Initializes grid of tiles
     for col in reels:
         grid_pos.append([])

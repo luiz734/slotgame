@@ -4,7 +4,7 @@ class_name SlotTile
 signal tween_completed(tile: SlotTile)
 signal animation_finished
 
-@onready var sprite: Sprite2D = $Sprite2D
+@onready var sprite: Sprite2D = $pivot/Sprite2D
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 var tween_speed_scale: float = 1.0
 
