@@ -64,7 +64,7 @@ _data = {
 script = ExtResource("2_hmnin")
 
 [node name="pivot" type="Node2D" parent="."]
-position = Vector2(64, 64)
+position = Vector2(128, 128)
 
 [node name="Sprite2D" type="Sprite2D" parent="pivot"]
 texture = ExtResource("1_i0ihf")
