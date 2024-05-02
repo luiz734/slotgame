@@ -1,11 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://di41ccpbftbje"]
+[gd_scene load_steps=2 format=3 uid="uid://di41ccpbftbje"]
 
 [ext_resource type="Script" path="res://slot_machine.gd" id="1_jvnfs"]
-[ext_resource type="PackedScene" uid="uid://dfe1scx4x88uo" path="res://wheel.tscn" id="1_ynmft"]
 
 [node name="SlotMachine" type="Node2D"]
 script = ExtResource("1_jvnfs")
-
-[node name="Wheel" parent="." instance=ExtResource("1_ynmft")]
-position = Vector2(324, 0)
-values = Array[String](["0", "1", "2", "3", "4", "5"])

@@ -1,45 +1,46 @@
-class_name SlotTile
 extends Node2D
+class_name SlotTile
 
-signal moved(tile)
-@onready var label: Label = $Label
-var target_position: Vector2
+signal tween_completed(tile: SlotTile)
+signal animation_finished
 
+@onready var sprite: Sprite2D = $Sprite2D
+@onready var animation_player: AnimationPlayer = $AnimationPlayer
+var tween_speed_scale: float = 1.0
+
+var size: Vector2
 
 func _ready():
-    assert(label, "missing label reference")
-    
-func set_label_text(value: String) -> void:
-    await self.ready
-    label.text = value
+    animation_player.animation_finished.connect(func(x):
+        animation_finished.emit()
+    )
 
-func move_to(to: Vector2, duration_sec: float):
-    var tween: Tween = get_tree().create_tween()
-    tween.set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_LINEAR)
-    tween.tween_property(self, "position", to, duration_sec)
-    await tween.finished
-    moved.emit(self)
-#
-#func spin(texture_size: float):
-    #tile.move_by(Vector2(0, sprite_size_y))
+func set_texture(tex):
+    await ready
+    sprite.texture = tex
+    set_size(size)
 
-func move_by(by: Vector2, duration_sec: float):
-  move_to(position + by, duration_sec)
+func set_size(new_size: Vector2):
+    await ready
+    size = new_size
+    sprite.scale = size / sprite.texture.get_size()
   
-func spin_up(duration_sec: float):
-    var to = position - Vector2(0, 50.0)
-    var tween: Tween = get_tree().create_tween()
-    tween.set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_LINEAR)
-    tween.tween_property(self, "position", to, duration_sec)
+func set_speed(speed):
+    tween_speed_scale = speed
+  
+func move_to(to: Vector2):
+    var tween = get_tree().create_tween()
+    tween.set_trans(Tween.TRANS_LINEAR).set_ease(Tween.EASE_OUT)
+    tween.set_speed_scale(tween_speed_scale)
+    tween.tween_property(self, "position", to, 1.0)
     await tween.finished
-    #animation_player.play("spin_up")
-    #await animation_player.animation_finished
-    
-func spin_down(duration_sec: float):
-    var to = position - Vector2(0, 128.0 - 50.0)
-    var tween: Tween = get_tree().create_tween()
-    tween.set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_LINEAR)
-    tween.tween_property(self, "position", to, duration_sec)
-    await tween.finished
+    tween_completed.emit(self)
 
-
+func move_by(by: Vector2):
+  move_to(position + by)
+  
+func spin_up():
+  animation_player.play('spin_up')
+  
+func spin_down():
+  animation_player.play('spin_down')
