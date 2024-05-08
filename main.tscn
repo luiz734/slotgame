@@ -17,7 +17,7 @@ color = Color(0.152941, 0.152941, 0.152941, 1)
 metadata/_edit_lock_ = true
 
 [node name="SlotMachine" parent="." instance=ExtResource("1_lyo8y")]
-position = Vector2(498, 517)
+position = Vector2(498, 225)
 reels = 3
 speed = 3.0
 

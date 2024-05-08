@@ -16,7 +16,9 @@ func _ready():
     )
 
 func set_texture(tex):
-    await ready
+    if not sprite:
+        await ready
+    #assert(tex.load_path != sprite.texture.load_path)
     sprite.texture = tex
     set_size(size)
 

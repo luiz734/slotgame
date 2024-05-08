@@ -7,11 +7,11 @@ const SPIN_UP_DISTANCE = 100.0
 signal stopped
 
 @export var pictures_row1 = [
-  preload("res://sprites/icons/bomb.png"),
-  # preload("res://sprites/icons/arrow_right.png"),
-  # preload("res://sprites/icons/brain.png"),
-  # preload("res://sprites/icons/skull.png"),
-  preload("res://sprites/icons/double-arrow.png"),
+    preload("res://sprites/icons/bomb.png"),
+    preload("res://sprites/icons/arrow_right.png"),
+    preload("res://sprites/icons/brain.png"),
+    preload("res://sprites/icons/skull.png"),
+    preload("res://sprites/icons/double-arrow.png"),
 ]
 
 @export var pictures_row2 = [
@@ -82,7 +82,6 @@ func _ready():
             # Position extra tiles above and below the viewport
             var pos:Vector2 = Vector2(col, row-0.5*extra_tiles) * (tile_size + spacement)
             grid_pos[col].append(pos)
-            print(pos)
             _add_tile(col, row)
   
 # Stores and initializes a new tile at the given grid cell
@@ -160,9 +159,10 @@ func _on_tile_moved(tile: SlotTile) -> void:
     var current_idx = total_runs - reel_runs
     if (current_idx < tiles_per_reel):
         var result_texture = pictures_row1[result.tiles[reel][current_idx]]
-        tile.set_texture(result_texture)
-    else:
-        tile.set_texture(_randomTexture(reel))
+        #tile.set_texture(result_texture)
+        #tile.set_texture(_randomTexture(reel))
+    #else:
+    tile.set_texture(_randomTexture(reel))
 
 
     # Stop moving after the reel ran expected_runs times
@@ -171,8 +171,9 @@ func _on_tile_moved(tile: SlotTile) -> void:
         tile.move_by(Vector2(0, tile_size.y))
     else: # stop moving this reel
         tile.spin_down()
+        #print(current_runs(0))
         # When last reel stopped, machine is stopped
-        print(str(reel) + " - " + str(reels))
+        #print(str(reel) + " - " + str(reels))
         if reel == reels - 1:
             _stop()
 
