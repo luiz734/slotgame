@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://bep2donq4o66s"]
+[gd_scene load_steps=5 format=3 uid="uid://bep2donq4o66s"]
 
 [ext_resource type="PackedScene" uid="uid://di41ccpbftbje" path="res://slot_machine.tscn" id="1_lyo8y"]
 [ext_resource type="Script" path="res://main.gd" id="1_v2djk"]
 [ext_resource type="Theme" uid="uid://7bhmgldpi7ub" path="res://tile-font.tres" id="3_p6v5f"]
+[ext_resource type="FontFile" uid="uid://cptj54oab7o4r" path="res://fonts/DePixelHalbfett.ttf" id="4_kl1mj"]
 
 [node name="main" type="Node2D"]
 position = Vector2(16, 0)
@@ -47,3 +48,12 @@ offset_right = 1696.0
 offset_bottom = 965.0
 theme = ExtResource("3_p6v5f")
 text = "Roll"
+
+[node name="output" type="RichTextLabel" parent="."]
+offset_left = 1262.0
+offset_top = 147.0
+offset_right = 1669.0
+offset_bottom = 412.0
+theme_override_fonts/normal_font = ExtResource("4_kl1mj")
+theme_override_font_sizes/normal_font_size = 20
+text = "none"

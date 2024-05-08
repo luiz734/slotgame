@@ -7,6 +7,7 @@ signal animation_finished
 @onready var sprite: Sprite2D = $pivot/Sprite2D
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 var tween_speed_scale: float = 1.0
+var data: SlotTileData = null
 
 var size: Vector2
 
@@ -15,15 +16,17 @@ func _ready():
         animation_finished.emit()
     )
 
-func set_texture(tex):
+func set_data(data: SlotTileData):
     if not sprite:
         await ready
+    self.data = data
     #assert(tex.load_path != sprite.texture.load_path)
-    sprite.texture = tex
+    sprite.texture = data.texture
     set_size(size)
 
 func set_size(new_size: Vector2):
-    await ready
+    if not sprite:
+        await ready
     size = new_size
     sprite.scale = size / sprite.texture.get_size()
   

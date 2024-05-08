@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="SlotTileData" load_steps=3 format=3 uid="uid://d3baihgo2usqd"]
+
+[ext_resource type="Script" path="res://slot_tile_data.gd" id="1_yxles"]
+[ext_resource type="Texture2D" uid="uid://5wqjcurmgqnw" path="res://sprites/icons/double-arrow.png" id="2_t33ri"]
+
+[resource]
+script = ExtResource("1_yxles")
+texture = ExtResource("2_t33ri")
+id = "double_arrow"

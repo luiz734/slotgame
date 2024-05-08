@@ -5,30 +5,33 @@ var SlotTile: PackedScene = preload("res://slot_tile.tscn")
 # Stores the SlotTile's SPIN_UP animation distance
 const SPIN_UP_DISTANCE = 100.0
 signal stopped
+signal stopped_all(tiles)
+var _stopped_count = 0
 
-@export var pictures_row1 = [
-    preload("res://sprites/icons/bomb.png"),
-    preload("res://sprites/icons/arrow_right.png"),
-    preload("res://sprites/icons/brain.png"),
-    preload("res://sprites/icons/skull.png"),
-    preload("res://sprites/icons/double-arrow.png"),
+@export var pictures_row1: Array[SlotTileData] = [
+    preload("res://resources/bomb.tres"),
+    preload("res://resources/arrow_right.tres"),
+    preload("res://resources/brain.tres"),
+    preload("res://resources/skull.tres"),
+    preload("res://resources/double_arrow.tres"),
 ]
 
-@export var pictures_row2 = [
-  # preload("res://sprites/icons/bomb.png"),
-  preload("res://sprites/icons/arrow_right.png"),
-  preload("res://sprites/icons/brain.png"),
-  # preload("res://sprites/icons/skull.png"),
-  # preload("res://sprites/icons/double-arrow.png"),
+@export var pictures_row2: Array[SlotTileData] = [
+    preload("res://resources/bomb.tres"),
+    preload("res://resources/arrow_right.tres"),
+    preload("res://resources/brain.tres"),
+    preload("res://resources/skull.tres"),
+    preload("res://resources/double_arrow.tres"),
 ]
 
-@export var pictures_row3 = [
-  # preload("res://sprites/icons/bomb.png"),
-  # preload("res://sprites/icons/arrow_right.png"),
-  # preload("res://sprites/icons/brain.png"),
-  preload("res://sprites/icons/skull.png"),
-  # preload("res://sprites/icons/double-arrow.png"),
+@export var pictures_row3: Array[SlotTileData] = [
+    preload("res://resources/bomb.tres"),
+    preload("res://resources/arrow_right.tres"),
+    preload("res://resources/brain.tres"),
+    preload("res://resources/skull.tres"),
+    preload("res://resources/double_arrow.tres"),
 ]
+
 
 @export_range (1,20) var reels: int= 5
 @export_range (1,20) var tiles_per_reel: int= 4
@@ -89,7 +92,7 @@ func _add_tile(col :int, row :int) -> void:
     tiles.append(SlotTile.instantiate())
     var tile := get_tile(col, row)
     tile.tween_completed.connect(_on_tile_moved)
-    tile.set_texture(_randomTexture(col))
+    tile.set_data(_randomTexture(col))
     tile.set_size(tile_size)
     tile.position = grid_pos[col][row]
     tile.set_speed(speed_norm)
@@ -103,6 +106,7 @@ func start() -> void:
     # Only start if it is not running yet
     if state == State.OFF:
         state = State.ON
+        _stopped_count = 0
         total_runs = expected_runs
         # Ask server for result
         _get_result()
@@ -128,7 +132,15 @@ func _stop() -> void:
     for reel in reels:
         tiles_moved_per_reel[reel] = 0
     state = State.OFF
+    _stopped_count += 1
     stopped.emit()
+    if _stopped_count == reels + 1:
+        stopped_all.emit([
+            get_tile(0, 1).data.id,
+            get_tile(1, 1).data.id,
+            get_tile(2, 1).data.id
+        ])
+    
 
 # Starts moving all tiles of the given reel
 func _spin_reel(reel :int) -> void:
@@ -162,7 +174,7 @@ func _on_tile_moved(tile: SlotTile) -> void:
         #tile.set_texture(result_texture)
         #tile.set_texture(_randomTexture(reel))
     #else:
-    tile.set_texture(_randomTexture(reel))
+    tile.set_data(_randomTexture(reel))
 
 
     # Stop moving after the reel ran expected_runs times
