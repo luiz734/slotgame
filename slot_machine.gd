@@ -6,30 +6,28 @@ var SlotTile: PackedScene = preload("res://slot_tile.tscn")
 const SPIN_UP_DISTANCE = 100.0
 signal stopped
 
-@export var pictures = [
-  preload("res://sprites/tile_icons/bat.png"),
-  preload("res://sprites/tile_icons/cactus.png"),
-  preload("res://sprites/tile_icons/card-exchange.png"),
-  preload("res://sprites/tile_icons/card-joker.png"),
-  preload("res://sprites/tile_icons/chess-knight.png"),
-  preload("res://sprites/tile_icons/coffee-cup.png"),
-  preload("res://sprites/tile_icons/companion-cube.png"),
-  preload("res://sprites/tile_icons/cycling.png"),
-  preload("res://sprites/tile_icons/dandelion-flower.png"),
-  preload("res://sprites/tile_icons/eight-ball.png"),
-  preload("res://sprites/tile_icons/hummingbird.png"),
-  preload("res://sprites/tile_icons/kiwi-bird.png"),
-  preload("res://sprites/tile_icons/owl.png"),
-  preload("res://sprites/tile_icons/pc.png"),
-  preload("res://sprites/tile_icons/pie-slice.png"),
-  preload("res://sprites/tile_icons/plastic-duck.png"),
-  preload("res://sprites/tile_icons/raven.png"),
-  preload("res://sprites/tile_icons/rolling-dices.png"),
-  preload("res://sprites/tile_icons/skull-crossed-bones.png"),
-  preload("res://sprites/tile_icons/super-mushroom.png"),
-  preload("res://sprites/tile_icons/tic-tac-toe.png"),
-  preload("res://sprites/tile_icons/trojan-horse.png"),
-  preload("res://sprites/tile_icons/udder.png")
+@export var pictures_row1 = [
+  preload("res://sprites/icons/bomb.png"),
+  # preload("res://sprites/icons/arrow_right.png"),
+  # preload("res://sprites/icons/brain.png"),
+  # preload("res://sprites/icons/skull.png"),
+  preload("res://sprites/icons/double-arrow.png"),
+]
+
+@export var pictures_row2 = [
+  # preload("res://sprites/icons/bomb.png"),
+  preload("res://sprites/icons/arrow_right.png"),
+  preload("res://sprites/icons/brain.png"),
+  # preload("res://sprites/icons/skull.png"),
+  # preload("res://sprites/icons/double-arrow.png"),
+]
+
+@export var pictures_row3 = [
+  # preload("res://sprites/icons/bomb.png"),
+  # preload("res://sprites/icons/arrow_right.png"),
+  # preload("res://sprites/icons/brain.png"),
+  preload("res://sprites/icons/skull.png"),
+  # preload("res://sprites/icons/double-arrow.png"),
 ]
 
 @export_range (1,20) var reels: int= 5
@@ -42,14 +40,15 @@ signal stopped
 @export_range (0.0,2.0) var reel_delay: float = 0.2
 
 # Adjusts tile size to viewport
-@onready var size := get_viewport_rect().size
-@onready var tile_size := size / Vector2(reels, reels)
+#@onready var size := get_viewport_rect().size
+#@onready var tile_size := size / Vector2(reels, reels)
+@onready var tile_size := Vector2(16*12, 16*12)
 # Normalizes the speed for consistancy independent of the number of tiles
 @onready var speed_norm := speed * tiles_per_reel
 # Add additional tiles outside the viewport of each reel for smooth animation
 # Add it twice for above and below the grid
 @onready var extra_tiles := int(ceil(SPIN_UP_DISTANCE / tile_size.y) * 2)
-
+@onready var pivot = $pivot
 # Stores the actual number of tiles
 @onready var rows := tiles_per_reel + extra_tiles
 
@@ -71,16 +70,19 @@ var tiles_moved_per_reel := []
 var runs_stopped := 0
 # Store the runs independent of how they are achieved
 var total_runs : int
+var spacement := Vector2(0,0)
 
 func _ready():
-    seed(0)
+    pivot.position.x -= tile_size.x
     # Initializes grid of tiles
     for col in reels:
         grid_pos.append([])
         tiles_moved_per_reel.append(0)
         for row in range(rows):
             # Position extra tiles above and below the viewport
-            grid_pos[col].append(Vector2(col, row-0.5*extra_tiles) * tile_size)
+            var pos:Vector2 = Vector2(col, row-0.5*extra_tiles) * (tile_size + spacement)
+            grid_pos[col].append(pos)
+            print(pos)
             _add_tile(col, row)
   
 # Stores and initializes a new tile at the given grid cell
@@ -88,11 +90,11 @@ func _add_tile(col :int, row :int) -> void:
     tiles.append(SlotTile.instantiate())
     var tile := get_tile(col, row)
     tile.tween_completed.connect(_on_tile_moved)
-    tile.set_texture(_randomTexture())
+    tile.set_texture(_randomTexture(col))
     tile.set_size(tile_size)
     tile.position = grid_pos[col][row]
     tile.set_speed(speed_norm)
-    add_child(tile)
+    pivot.add_child(tile)
 
 # Returns the tile at the given grid cell
 func get_tile(col :int, row :int) -> SlotTile:
@@ -154,14 +156,13 @@ func _on_tile_moved(tile: SlotTile) -> void:
     # If tile moved out of the viewport, move it to the invisible row at the top
     if (tile.position.y > grid_pos[0][-1].y):
         tile.position.y = grid_pos[0][0].y
-        pass
     # Set a new random texture
     var current_idx = total_runs - reel_runs
     if (current_idx < tiles_per_reel):
-        var result_texture = pictures[result.tiles[reel][current_idx]]
+        var result_texture = pictures_row1[result.tiles[reel][current_idx]]
         tile.set_texture(result_texture)
     else:
-        tile.set_texture(_randomTexture())
+        tile.set_texture(_randomTexture(reel))
 
 
     # Stop moving after the reel ran expected_runs times
@@ -181,8 +182,11 @@ func _on_tile_moved(tile: SlotTile) -> void:
 func current_runs(reel := 0) -> int:
     return int(ceil(float(tiles_moved_per_reel[reel]) / rows))
 
-func _randomTexture():
-    return pictures[randi() % pictures.size()]
+func _randomTexture(row: int):
+    assert(row >=0 and row <= 2, "Invalid row")
+    if row == 0: return pictures_row1[randi() % pictures_row1.size()]
+    elif row == 1: return pictures_row2[randi() % pictures_row2.size()]
+    elif row == 2: return pictures_row3[randi() % pictures_row3.size()]
 
 func _get_result() -> void:
     result = {

@@ -1,6 +1,6 @@
 extends Node2D
 
-@onready var slot = $SubViewportContainer/SubViewport/SlotMachine
+@onready var slot = $SlotMachine
 @onready var roll_button = $Roll
 
 func _ready():

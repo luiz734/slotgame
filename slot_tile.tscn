@@ -61,12 +61,13 @@ _data = {
 }
 
 [node name="SlotTile" type="Node2D"]
+scale = Vector2(0.8, 0.8)
 script = ExtResource("2_hmnin")
 
 [node name="pivot" type="Node2D" parent="."]
-position = Vector2(128, 128)
 
 [node name="Sprite2D" type="Sprite2D" parent="pivot"]
+texture_filter = 1
 texture = ExtResource("1_i0ihf")
 
 [node name="Label" type="Label" parent="."]
