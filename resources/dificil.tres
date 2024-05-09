@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="SlotTileData" load_steps=3 format=3 uid="uid://crp7spbq4d8g3"]
+
+[ext_resource type="Script" path="res://slot_tile_data.gd" id="1_qdky4"]
+[ext_resource type="Texture2D" uid="uid://dc6670ckihmml" path="res://sprites/icons/dificil.png" id="2_g6xj3"]
+
+[resource]
+script = ExtResource("1_qdky4")
+texture = ExtResource("2_g6xj3")
+id = "dificil"

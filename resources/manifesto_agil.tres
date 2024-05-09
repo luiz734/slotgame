@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="SlotTileData" load_steps=3 format=3 uid="uid://byd1crygb0cll"]
+
+[ext_resource type="Script" path="res://slot_tile_data.gd" id="1_upbnk"]
+[ext_resource type="Texture2D" uid="uid://c3rm6j7jgmutf" path="res://sprites/icons/Manifesto_Agil.png" id="2_syg12"]
+
+[resource]
+script = ExtResource("1_upbnk")
+texture = ExtResource("2_syg12")
+id = "manifesto_agil"

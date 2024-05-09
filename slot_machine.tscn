@@ -10,7 +10,7 @@
 
 [node name="SlotMachine" type="Node2D"]
 script = ExtResource("1_jvnfs")
-pictures_row1 = [ExtResource("2_dqn73"), ExtResource("3_v2p7l"), ExtResource("4_bipa0"), ExtResource("5_nenyb"), ExtResource("6_254nx")]
+pictures_row1 = Array[Resource("res://slot_tile_data.gd")]([ExtResource("2_dqn73"), ExtResource("3_v2p7l"), ExtResource("4_bipa0"), ExtResource("5_nenyb"), ExtResource("6_254nx")])
 speed = 1.0
 
 [node name="Slotmachine" type="Sprite2D" parent="."]
