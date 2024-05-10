@@ -32,30 +32,29 @@ var _stopped_count = 0
     preload("res://resources/double_arrow.tres"),
 ]
 
-
-@export_range (1,20) var reels: int= 5
-@export_range (1,20) var tiles_per_reel: int= 4
+@export_range(1, 20) var reels: int = 5
+@export_range(1, 20) var tiles_per_reel: int = 4
 # Defines how long the reels are spinning
-@export_range (0.0, 10.0) var runtime: float = 1.0
+@export_range(0.0, 10.0) var runtime: float = 1.0
 # Defines how fast the reels are spinning
-@export_range (0.1,10.0) var speed: float = 5.0
+@export_range(0.1, 10.0) var speed: float = 5.0
 # Defines the start delay between each reel
-@export_range (0.0,2.0) var reel_delay: float = 0.2
+@export_range(0.0, 2.0) var reel_delay: float = 0.2
 
 # Adjusts tile size to viewport
 #@onready var size := get_viewport_rect().size
 #@onready var tile_size := size / Vector2(reels, reels)
-@onready var tile_size := Vector2(16*12, 16*12)
+@onready var tile_size := Vector2(16 * 12, 16 * 12)
 # Normalizes the speed for consistancy independent of the number of tiles
 @onready var speed_norm := speed * tiles_per_reel
 # Add additional tiles outside the viewport of each reel for smooth animation
 # Add it twice for above and below the grid
 @onready var extra_tiles := int(ceil(SPIN_UP_DISTANCE / tile_size.y) * 2)
-@onready var pivot = $pivot
+@onready var pivot = $SubViewport/pivot
 # Stores the actual number of tiles
 @onready var rows := tiles_per_reel + extra_tiles
 
-enum State {OFF, ON, STOPPED}
+enum State { OFF, ON, STOPPED }
 var state = State.OFF
 var result := {}
 
@@ -66,14 +65,15 @@ var grid_pos := []
 
 # 1/speed*runtime*reels times
 # Stores the desured number of movements per reel
-@onready var expected_runs :int = int(runtime * speed_norm)
+@onready var expected_runs: int = int(runtime * speed_norm)
 # Stores the current number of movements per reel
 var tiles_moved_per_reel := []
-# When force stopped, stores the current number of movements 
+# When force stopped, stores the current number of movements
 var runs_stopped := 0
 # Store the runs independent of how they are achieved
-var total_runs : int
-var spacement := Vector2(0,0)
+var total_runs: int
+var spacement := Vector2(0, 0)
+
 
 func _ready():
     pivot.position.x -= tile_size.x
@@ -83,12 +83,13 @@ func _ready():
         tiles_moved_per_reel.append(0)
         for row in range(rows):
             # Position extra tiles above and below the viewport
-            var pos:Vector2 = Vector2(col, row-0.5*extra_tiles) * (tile_size + spacement)
+            var pos: Vector2 = Vector2(col, row - 0.5 * extra_tiles) * (tile_size + spacement)
             grid_pos[col].append(pos)
             _add_tile(col, row)
-  
+
+
 # Stores and initializes a new tile at the given grid cell
-func _add_tile(col :int, row :int) -> void:
+func _add_tile(col: int, row: int) -> void:
     tiles.append(SlotTile.instantiate())
     var tile := get_tile(col, row)
     tile.tween_completed.connect(_on_tile_moved)
@@ -98,9 +99,11 @@ func _add_tile(col :int, row :int) -> void:
     tile.set_speed(speed_norm)
     pivot.add_child(tile)
 
+
 # Returns the tile at the given grid cell
-func get_tile(col :int, row :int) -> SlotTile:
+func get_tile(col: int, row: int) -> SlotTile:
     return tiles[(col * rows) + row]
+
 
 func start() -> void:
     # Only start if it is not running yet
@@ -117,7 +120,8 @@ func start() -> void:
             # Spins the next reel a little bit later
             if reel_delay > 0:
                 await get_tree().create_timer(reel_delay).timeout
-    
+
+
 # Force the machine to stop before runtime ends
 func stop():
     # Tells the machine to stop at the next possible moment
@@ -127,6 +131,7 @@ func stop():
     runs_stopped = current_runs()
     total_runs = runs_stopped + tiles_per_reel + 1
 
+
 # Is called when the animation stops
 func _stop() -> void:
     for reel in reels:
@@ -135,29 +140,27 @@ func _stop() -> void:
     _stopped_count += 1
     stopped.emit()
     if _stopped_count == reels + 1:
-        stopped_all.emit([
-            get_tile(0, 1).data.id,
-            get_tile(1, 1).data.id,
-            get_tile(2, 1).data.id
-        ])
-    
+        stopped_all.emit([get_tile(0, 1).data.id, get_tile(1, 1).data.id, get_tile(2, 1).data.id])
+
 
 # Starts moving all tiles of the given reel
-func _spin_reel(reel :int) -> void:
+func _spin_reel(reel: int) -> void:
     # Moves each tile of the reel
     for row in rows:
         _move_tile(get_tile(reel, row))
 
-func _move_tile(tile :SlotTile) -> void:
+
+func _move_tile(tile: SlotTile) -> void:
     # Plays a spin up animation
     tile.spin_up()
     await tile.animation_finished
     # Moves reel by one tile at a time to avoid artifacts when going too fast
     tile.move_by(Vector2(0, tile_size.y))
     # The reel will move further through the _on_tile_moved function
-    
+
+
 #func _on_tile_moved(tile: SlotTile, _nodePath) -> void:
-func _on_tile_moved(tile: SlotTile) -> void:    
+func _on_tile_moved(tile: SlotTile) -> void:
     # Calculates the reel that the tile is on
     var reel := int(tile.position.x / tile_size.x)
     # Count how many tiles moved per reel
@@ -165,23 +168,22 @@ func _on_tile_moved(tile: SlotTile) -> void:
     var reel_runs := current_runs(reel)
 
     # If tile moved out of the viewport, move it to the invisible row at the top
-    if (tile.position.y > grid_pos[0][-1].y):
+    if tile.position.y > grid_pos[0][-1].y:
         tile.position.y = grid_pos[0][0].y
     # Set a new random texture
     var current_idx = total_runs - reel_runs
-    if (current_idx < tiles_per_reel):
+    if current_idx < tiles_per_reel:
         var result_texture = pictures_row1[result.tiles[reel][current_idx]]
         #tile.set_texture(result_texture)
         #tile.set_texture(_randomTexture(reel))
     #else:
     tile.set_data(_randomTexture(reel))
 
-
     # Stop moving after the reel ran expected_runs times
     # Or if the player stopped it
-    if (state != State.OFF && reel_runs != total_runs):
+    if state != State.OFF && reel_runs != total_runs:
         tile.move_by(Vector2(0, tile_size.y))
-    else: # stop moving this reel
+    else:  # stop moving this reel
         tile.spin_down()
         #print(current_runs(0))
         # When last reel stopped, machine is stopped
@@ -189,25 +191,23 @@ func _on_tile_moved(tile: SlotTile) -> void:
         if reel == reels - 1:
             _stop()
 
+
 # Divide it by the number of tiles to know how often the whole reel moved
 # Since this function is called by each tile, the number changes (e.g. for 6 tiles: 1/6, 2/6, ...)
 # We use ceil, so that both 1/7, as well as 7/7 return that the reel ran 1 time
 func current_runs(reel := 0) -> int:
     return int(ceil(float(tiles_moved_per_reel[reel]) / rows))
 
+
 func _randomTexture(row: int):
-    assert(row >=0 and row <= 2, "Invalid row")
-    if row == 0: return pictures_row1[randi() % pictures_row1.size()]
-    elif row == 1: return pictures_row2[randi() % pictures_row2.size()]
-    elif row == 2: return pictures_row3[randi() % pictures_row3.size()]
+    assert(row >= 0 and row <= 2, "Invalid row")
+    if row == 0:
+        return pictures_row1[randi() % pictures_row1.size()]
+    elif row == 1:
+        return pictures_row2[randi() % pictures_row2.size()]
+    elif row == 2:
+        return pictures_row3[randi() % pictures_row3.size()]
+
 
 func _get_result() -> void:
-    result = {
-        "tiles": [
-            [ 0,0,0,0 ],
-            [ 0,0,0,0 ],
-            [ 0,0,0,0 ],
-            [ 0,0,0,0 ],
-            [ 0,0,0,0 ]
-        ]
-    }
+    result = {"tiles": [[0, 0, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0]]}

@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://bep2donq4o66s"]
+[gd_scene load_steps=6 format=3 uid="uid://bep2donq4o66s"]
 
 [ext_resource type="PackedScene" uid="uid://di41ccpbftbje" path="res://slot_machine.tscn" id="1_lyo8y"]
 [ext_resource type="Script" path="res://main.gd" id="1_v2djk"]
 [ext_resource type="Theme" uid="uid://7bhmgldpi7ub" path="res://tile-font.tres" id="3_p6v5f"]
 [ext_resource type="FontFile" uid="uid://cptj54oab7o4r" path="res://fonts/DePixelHalbfett.ttf" id="4_kl1mj"]
+[ext_resource type="PackedScene" uid="uid://chsvsyt683la1" path="res://question.tscn" id="5_xqvsr"]
 
 [node name="main" type="Node2D"]
 position = Vector2(16, 0)
@@ -18,28 +19,9 @@ color = Color(0.152941, 0.152941, 0.152941, 1)
 metadata/_edit_lock_ = true
 
 [node name="SlotMachine" parent="." instance=ExtResource("1_lyo8y")]
-position = Vector2(498, 225)
+position = Vector2(412, 482)
 reels = 3
 speed = 3.0
-
-[node name="SubViewportContainer" type="SubViewportContainer" parent="."]
-visible = false
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 219.0
-offset_top = 137.0
-offset_right = 680.0
-offset_bottom = 598.0
-grow_horizontal = 2
-grow_vertical = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-
-[node name="SubViewport" type="SubViewport" parent="SubViewportContainer"]
-handle_input_locally = false
-size = Vector2i(461, 461)
-render_target_update_mode = 0
 
 [node name="Roll" type="Button" parent="."]
 offset_left = 1297.0
@@ -57,3 +39,7 @@ offset_bottom = 412.0
 theme_override_fonts/normal_font = ExtResource("4_kl1mj")
 theme_override_font_sizes/normal_font_size = 20
 text = "none"
+
+[node name="Question" parent="." instance=ExtResource("5_xqvsr")]
+visible = false
+position = Vector2(883, 0)
