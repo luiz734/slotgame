@@ -16,6 +16,7 @@ class_name SlotTileData
         
         
 # Tirar daqui, e retornar a combinação de tópico e dificuldade 
+# Criar outro resource, armazenar as perguntas em uma matriz
 func read_txt_file(word: String) -> String:
 
     var file = FileAccess.open("res://questions.txt", FileAccess.READ)

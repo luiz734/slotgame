@@ -1,16 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://di41ccpbftbje"]
+[gd_scene load_steps=3 format=3 uid="uid://di41ccpbftbje"]
 
 [ext_resource type="Script" path="res://slot_machine.gd" id="1_jvnfs"]
 [ext_resource type="Texture2D" uid="uid://c104qi8hqg81o" path="res://sprites/slotmachine.png" id="2_12rhw"]
-[ext_resource type="Resource" uid="uid://v2ert82vfm2o" path="res://resources/arrow_right.tres" id="2_dqn73"]
-[ext_resource type="Resource" uid="uid://bucwq7380ivmr" path="res://resources/bomb.tres" id="3_v2p7l"]
-[ext_resource type="Resource" uid="uid://bt4ngddkuigy3" path="res://resources/brain.tres" id="4_bipa0"]
-[ext_resource type="Resource" uid="uid://d3baihgo2usqd" path="res://resources/double_arrow.tres" id="5_nenyb"]
-[ext_resource type="Resource" uid="uid://bra6ebemfbqt4" path="res://resources/skull.tres" id="6_254nx"]
 
 [node name="SlotMachine" type="Node2D"]
 script = ExtResource("1_jvnfs")
-pictures_row1 = Array[Resource("res://slot_tile_data.gd")]([ExtResource("2_dqn73"), ExtResource("3_v2p7l"), ExtResource("4_bipa0"), ExtResource("5_nenyb"), ExtResource("6_254nx")])
 speed = 1.0
 
 [node name="Slotmachine" type="Sprite2D" parent="."]
