@@ -11,6 +11,10 @@ func _ready():
         print(slots)
         output.text = str(slots)
     )
+    #Globals.slot_start.connect(func():
+        #await get_tree().create_timer(3.0).timeout
+        #_on_Roll_button_down()
+    #)
 
 func _on_Roll_button_down():
     if roll_button.text == "Roll":

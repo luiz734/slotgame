@@ -1,0 +1,154 @@
+[gd_scene load_steps=12 format=3 uid="uid://dfxfeqlfoquo1"]
+
+[ext_resource type="Texture2D" uid="uid://wi6prvij8wtm" path="res://sprites/canvas-back.png" id="1_05j5s"]
+[ext_resource type="Shader" path="res://question/page_flip.gdshader" id="2_oebdn"]
+[ext_resource type="Texture2D" uid="uid://7lmcbri8hqhl" path="res://sprites/canvas-front.png" id="2_rl8no"]
+[ext_resource type="Script" path="res://question/page_flip.gd" id="3_6cptl"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_do0rh"]
+shader = ExtResource("2_oebdn")
+shader_parameter/scale = Vector2(1, 1)
+shader_parameter/mouse_pos = Vector2(1, 1)
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_f345l"]
+viewport_path = NodePath("PageFlipViewport")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_1iile"]
+viewport_path = NodePath("ContentViewport")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0db3g"]
+content_margin_left = 10.0
+content_margin_top = 10.0
+content_margin_right = 10.0
+content_margin_bottom = 10.0
+bg_color = Color(0.560784, 0.529412, 0.788235, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_swerr"]
+content_margin_left = 10.0
+content_margin_top = 10.0
+content_margin_right = 10.0
+content_margin_bottom = 10.0
+bg_color = Color(0.419608, 0.396078, 0.588235, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="Theme" id="Theme_pewsp"]
+default_font_size = 40
+Button/colors/font_color = Color(1, 1, 1, 1)
+Button/styles/hover = SubResource("StyleBoxFlat_0db3g")
+Button/styles/normal = SubResource("StyleBoxFlat_swerr")
+RichTextLabel/colors/default_color = Color(1, 1, 1, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_80byv"]
+font_size = 40
+font_color = Color(0, 0, 0, 1)
+
+[node name="Question" type="Node2D"]
+
+[node name="CanvasBack" type="TextureRect" parent="."]
+offset_left = 9.0
+offset_top = -13.0
+offset_right = 1253.0
+offset_bottom = 632.0
+texture = ExtResource("1_05j5s")
+
+[node name="FinalOutput" type="TextureRect" parent="."]
+material = SubResource("ShaderMaterial_do0rh")
+offset_right = 1229.0
+offset_bottom = 613.0
+texture = SubResource("ViewportTexture_f345l")
+flip_h = true
+script = ExtResource("3_6cptl")
+
+[node name="PageFlipViewport" type="SubViewport" parent="."]
+transparent_bg = true
+size = Vector2i(1229, 613)
+
+[node name="ViewportCanvasFront" type="TextureRect" parent="PageFlipViewport"]
+offset_right = 1229.0
+offset_bottom = 613.0
+texture = SubResource("ViewportTexture_1iile")
+flip_h = true
+
+[node name="ContentViewport" type="SubViewport" parent="."]
+transparent_bg = true
+size = Vector2i(1229, 613)
+
+[node name="CanvasFront" type="TextureRect" parent="ContentViewport"]
+offset_right = 1234.0
+offset_bottom = 618.0
+theme = SubResource("Theme_pewsp")
+texture = ExtResource("2_rl8no")
+
+[node name="MarginContainer" type="MarginContainer" parent="ContentViewport/CanvasFront"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 30
+theme_override_constants/margin_top = 45
+theme_override_constants/margin_right = 45
+theme_override_constants/margin_bottom = 45
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ContentViewport/CanvasFront/MarginContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="ContentViewport/CanvasFront/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Scrum"
+label_settings = SubResource("LabelSettings_80byv")
+horizontal_alignment = 1
+
+[node name="Spacer2" type="Control" parent="ContentViewport/CanvasFront/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="ContentViewport/CanvasFront/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+text = "Qual é a função do Scrum Master em um time Scrum?"
+
+[node name="GridContainer" type="GridContainer" parent="ContentViewport/CanvasFront/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/h_separation = 10
+theme_override_constants/v_separation = 20
+columns = 2
+
+[node name="Label" type="Button" parent="ContentViewport/CanvasFront/MarginContainer/VBoxContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Scrum"
+alignment = 0
+
+[node name="Label2" type="Button" parent="ContentViewport/CanvasFront/MarginContainer/VBoxContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Scrum"
+alignment = 0
+
+[node name="Label3" type="Button" parent="ContentViewport/CanvasFront/MarginContainer/VBoxContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Scrum"
+alignment = 0
+
+[node name="Label4" type="Button" parent="ContentViewport/CanvasFront/MarginContainer/VBoxContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Scrum"
+alignment = 0
+
+[node name="Spacer" type="Control" parent="ContentViewport/CanvasFront/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.2
