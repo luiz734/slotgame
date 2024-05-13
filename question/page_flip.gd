@@ -1,11 +1,14 @@
 extends TextureRect
+class_name PageFlip
+
+signal flip_animation_finished
 
 #@onready var sprite: Sprite2D = $Icon
 var flip_pivot: Vector2 = Vector2(1.0, 1.0)
 
 func _ready():
     #material.set_shader_parameter("scale",global_scale)
-    Globals.slot_start.connect(play_pageflip_animation)
+    pass
     
 func play_pageflip_animation():
     var tween_x = get_tree().create_tween()
@@ -20,16 +23,16 @@ func play_pageflip_animation():
         flip_pivot.y = y
         , 1.0, -2.0, 1.5)
 
-    # debug only
     await tween_y.finished
-    flip_pivot = Vector2(1.0, 1.0)
+    flip_animation_finished.emit()
+    # flip_pivot = Vector2(1.0, 1.0)
 
 
 func _process(_delta):
     # var window_size: Vector2 = get_window().size
     # var norm_mouse_pos = owner.get_viewport().get_mouse_position() / window_size
     var norm_mouse_pos := flip_pivot
-    print(norm_mouse_pos)
+    # print(norm_mouse_pos)
     # If you flip the X-axis of the Node displaying the viewport. 
     # Same for fliping Y.
     norm_mouse_pos.x = 1.0 - norm_mouse_pos.x

@@ -1,15 +1,20 @@
-[gd_scene load_steps=7 format=3 uid="uid://bep2donq4o66s"]
+[gd_scene load_steps=9 format=3 uid="uid://bep2donq4o66s"]
 
 [ext_resource type="PackedScene" uid="uid://di41ccpbftbje" path="res://slot_machine/slot_machine.tscn" id="1_lyo8y"]
 [ext_resource type="Script" path="res://main.gd" id="1_v2djk"]
+[ext_resource type="Texture2D" uid="uid://wi6prvij8wtm" path="res://sprites/canvas-back.png" id="2_2e3i7"]
 [ext_resource type="Theme" uid="uid://7bhmgldpi7ub" path="res://slot_tile/tile-font.tres" id="3_p6v5f"]
 [ext_resource type="FontFile" uid="uid://cptj54oab7o4r" path="res://fonts/DePixelHalbfett.ttf" id="4_kl1mj"]
 [ext_resource type="Texture2D" uid="uid://cw2t7ynreupkq" path="res://sprites/icons/clock.png" id="5_7xbkl"]
 [ext_resource type="PackedScene" uid="uid://dfxfeqlfoquo1" path="res://question/question.tscn" id="6_pv1w7"]
 
+[sub_resource type="LabelSettings" id="LabelSettings_davd1"]
+font_size = 100
+
 [node name="main" type="Node2D"]
 position = Vector2(16, 0)
 script = ExtResource("1_v2djk")
+question_prefab = ExtResource("6_pv1w7")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 offset_left = -113.0
@@ -18,6 +23,22 @@ offset_right = 1964.0
 offset_bottom = 1141.0
 color = Color(0.137255, 0.129412, 0.192157, 1)
 metadata/_edit_lock_ = true
+
+[node name="CanvasBack" type="TextureRect" parent="."]
+offset_left = 9.0
+offset_top = -13.0
+offset_right = 1253.0
+offset_bottom = 632.0
+texture = ExtResource("2_2e3i7")
+
+[node name="Label" type="Label" parent="."]
+self_modulate = Color(1, 1, 1, 0.168627)
+offset_left = 66.0
+offset_top = 812.0
+offset_right = 573.0
+offset_bottom = 949.0
+text = "PRESS TAB"
+label_settings = SubResource("LabelSettings_davd1")
 
 [node name="SlotMachine" parent="." instance=ExtResource("1_lyo8y")]
 position = Vector2(-553, 863)
@@ -45,5 +66,3 @@ text = "none"
 [node name="Clock" type="Sprite2D" parent="."]
 position = Vector2(1691, 599)
 texture = ExtResource("5_7xbkl")
-
-[node name="Question" parent="." instance=ExtResource("6_pv1w7")]
