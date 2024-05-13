@@ -1,0 +1,12 @@
+[gd_scene load_steps=2 format=3 uid="uid://dkptbvdfi50r6"]
+
+[ext_resource type="Theme" uid="uid://7bhmgldpi7ub" path="res://slot_tile/tile-font.tres" id="1_c14oe"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Label" type="Label" parent="."]
+texture_filter = 1
+offset_right = 40.0
+offset_bottom = 23.0
+theme = ExtResource("1_c14oe")
+text = "MEDIUM"

@@ -1,0 +1,49 @@
+[gd_scene load_steps=4 format=3 uid="uid://di41ccpbftbje"]
+
+[ext_resource type="Script" path="res://slot_machine/slot_machine.gd" id="1_jvnfs"]
+[ext_resource type="Texture2D" uid="uid://1bbbxv7bjv4e" path="res://sprites/slotmachine.png" id="2_txdtl"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_6jy35"]
+viewport_path = NodePath("SubViewport")
+
+[node name="SlotMachine" type="Node2D"]
+script = ExtResource("1_jvnfs")
+speed = 1.0
+
+[node name="Slotmachine" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(38, 25)
+texture = ExtResource("2_txdtl")
+
+[node name="ViewportDisplay" type="TextureRect" parent="."]
+offset_left = -474.0
+offset_top = -142.0
+offset_right = 468.0
+offset_bottom = 190.0
+texture = SubResource("ViewportTexture_6jy35")
+
+[node name="SubViewport" type="SubViewport" parent="."]
+transparent_bg = true
+size = Vector2i(942, 332)
+
+[node name="pivot" type="Node2D" parent="SubViewport"]
+position = Vector2(471, 166)
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="."]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 219.0
+offset_top = 137.0
+offset_right = 680.0
+offset_bottom = 598.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="SubViewport" type="SubViewport" parent="SubViewportContainer"]
+handle_input_locally = false
+size = Vector2i(942, 332)
+render_target_update_mode = 0

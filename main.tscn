@@ -1,10 +1,10 @@
 [gd_scene load_steps=6 format=3 uid="uid://bep2donq4o66s"]
 
-[ext_resource type="PackedScene" uid="uid://di41ccpbftbje" path="res://slot_machine.tscn" id="1_lyo8y"]
+[ext_resource type="PackedScene" uid="uid://di41ccpbftbje" path="res://slot_machine/slot_machine.tscn" id="1_lyo8y"]
 [ext_resource type="Script" path="res://main.gd" id="1_v2djk"]
-[ext_resource type="Theme" uid="uid://7bhmgldpi7ub" path="res://tile-font.tres" id="3_p6v5f"]
+[ext_resource type="Theme" uid="uid://7bhmgldpi7ub" path="res://slot_tile/tile-font.tres" id="3_p6v5f"]
 [ext_resource type="FontFile" uid="uid://cptj54oab7o4r" path="res://fonts/DePixelHalbfett.ttf" id="4_kl1mj"]
-[ext_resource type="PackedScene" uid="uid://chsvsyt683la1" path="res://question.tscn" id="5_xqvsr"]
+[ext_resource type="Texture2D" uid="uid://cw2t7ynreupkq" path="res://sprites/icons/clock.png" id="5_7xbkl"]
 
 [node name="main" type="Node2D"]
 position = Vector2(16, 0)
@@ -15,19 +15,20 @@ offset_left = -113.0
 offset_top = -20.0
 offset_right = 1964.0
 offset_bottom = 1141.0
-color = Color(0.152941, 0.152941, 0.152941, 1)
+color = Color(0.137255, 0.129412, 0.192157, 1)
 metadata/_edit_lock_ = true
 
 [node name="SlotMachine" parent="." instance=ExtResource("1_lyo8y")]
-position = Vector2(412, 482)
+position = Vector2(604, 455)
+scale = Vector2(0.8, 0.8)
 reels = 3
 speed = 3.0
 
 [node name="Roll" type="Button" parent="."]
-offset_left = 1297.0
-offset_top = 841.0
-offset_right = 1696.0
-offset_bottom = 965.0
+offset_left = 1460.0
+offset_top = 921.0
+offset_right = 1859.0
+offset_bottom = 1045.0
 theme = ExtResource("3_p6v5f")
 text = "Roll"
 
@@ -40,6 +41,6 @@ theme_override_fonts/normal_font = ExtResource("4_kl1mj")
 theme_override_font_sizes/normal_font_size = 20
 text = "none"
 
-[node name="Question" parent="." instance=ExtResource("5_xqvsr")]
-visible = false
-position = Vector2(883, 0)
+[node name="Clock" type="Sprite2D" parent="."]
+position = Vector2(1669, 412)
+texture = ExtResource("5_7xbkl")

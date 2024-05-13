@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://1bbbxv7bjv4e"
-path="res://.godot/imported/slotmachine.png-b07dc9531dcf222db942fb653adb4887.ctex"
+uid="uid://ca6n65ofrj161"
+path="res://.godot/imported/tile_bg.png-cff3382020a7f562d0083248fb68ae2f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/slotmachine.png"
-dest_files=["res://.godot/imported/slotmachine.png-b07dc9531dcf222db942fb653adb4887.ctex"]
+source_file="res://sprites/tile_bg.png"
+dest_files=["res://.godot/imported/tile_bg.png-cff3382020a7f562d0083248fb68ae2f.ctex"]
 
 [params]
 
