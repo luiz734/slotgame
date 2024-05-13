@@ -13,9 +13,10 @@ func _ready():
     )
 
 func _on_Roll_button_down():
-  if roll_button.text == "Roll":
-    slot.start()
-    roll_button.text = "Stop"
+    if roll_button.text == "Roll":
+        slot.start()
+        Globals.slot_start.emit()
+        roll_button.text = "Stop"
 
 func _on_slot_machine_stopped(slots):
-  roll_button.text = "Roll"
+    roll_button.text = "Roll"

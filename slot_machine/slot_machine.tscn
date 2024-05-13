@@ -1,10 +1,26 @@
-[gd_scene load_steps=11 format=3 uid="uid://di41ccpbftbje"]
+[gd_scene load_steps=12 format=3 uid="uid://di41ccpbftbje"]
 
 [ext_resource type="Script" path="res://slot_machine/slot_machine.gd" id="1_jvnfs"]
+[ext_resource type="Script" path="res://slot_machine/slot_machine_animator.gd" id="2_jcs7i"]
 [ext_resource type="Texture2D" uid="uid://ds7nrkgmkmt36" path="res://sprites/slotmachine.png" id="2_txdtl"]
 [ext_resource type="Texture2D" uid="uid://osp4grk7mblu" path="res://sprites/slot_side.png" id="2_xp55d"]
 [ext_resource type="Texture2D" uid="uid://bkx7dj0ynv8ss" path="res://sprites/slot_tip.png" id="5_o65h8"]
 [ext_resource type="Script" path="res://slot_machine/slot_handler.gd" id="6_m1nh5"]
+
+[sub_resource type="Animation" id="Animation_hdl1u"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SlotTip:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(555, -141)]
+}
 
 [sub_resource type="Animation" id="Animation_j3mma"]
 resource_name = "pull"
@@ -21,21 +37,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 0.435275, 1),
 "update": 0,
 "values": [Vector2(555, -141), Vector2(555, 147), Vector2(555, -141)]
-}
-
-[sub_resource type="Animation" id="Animation_hdl1u"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("SlotTip:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(555, -141)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_lttog"]
@@ -58,22 +59,24 @@ speed = 1.0
 libraries = {
 "": SubResource("AnimationLibrary_lttog")
 }
-autoplay = "pull"
+autoplay = "RESET"
 
-[node name="sprites_pivot" type="Node2D" parent="."]
+[node name="SpritesAnimator" type="Node2D" parent="." node_paths=PackedStringArray("animation_player")]
+script = ExtResource("2_jcs7i")
+animation_player = NodePath("../AnimationPlayer")
 
-[node name="SlotSide" type="Sprite2D" parent="sprites_pivot"]
+[node name="SlotSide" type="Sprite2D" parent="SpritesAnimator"]
 position = Vector2(472, 17)
 texture = ExtResource("2_xp55d")
 
-[node name="Slotmachine" type="Sprite2D" parent="sprites_pivot"]
+[node name="Slotmachine" type="Sprite2D" parent="SpritesAnimator"]
 texture_filter = 1
 texture = ExtResource("2_txdtl")
 
-[node name="FixedPoint" type="Node2D" parent="sprites_pivot"]
+[node name="FixedPoint" type="Node2D" parent="SpritesAnimator"]
 position = Vector2(555, 8)
 
-[node name="Line2D" type="Line2D" parent="sprites_pivot/FixedPoint" node_paths=PackedStringArray("move_part")]
+[node name="Line2D" type="Line2D" parent="SpritesAnimator/FixedPoint" node_paths=PackedStringArray("move_part")]
 points = PackedVector2Array(0, 0, 100, 0)
 width = 17.0
 default_color = Color(0.862745, 0.52549, 0, 1)
