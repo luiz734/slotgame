@@ -15,12 +15,17 @@ func _ready():
         print(slots)
         output.text = str(slots)
     )
-
-    add_child(question_prefab.instantiate() as Question)
-    current_question = question_prefab.instantiate() as Question
+    
+    #add_child(create_question())
+    current_question = create_question()
     add_child(current_question)
+
    
 
+func create_question() -> Question:
+    var question = question_prefab.instantiate() as Question
+    question.position += Vector2(10, 25)
+    return question
 
 func _on_Roll_button_down():
     if roll_button.text == "Roll":
@@ -28,7 +33,8 @@ func _on_Roll_button_down():
         Globals.slot_start.emit()
         roll_button.text = "Stop"
         
-        var new_question = question_prefab.instantiate() as Question
+        # todo: change alpha over time to avoid flickering
+        var new_question = create_question()
         add_child(new_question)
         #new_question.z_index = -2
         

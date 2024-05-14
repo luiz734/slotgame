@@ -1,7 +1,7 @@
 [gd_resource type="Theme" load_steps=2 format=3 uid="uid://7bhmgldpi7ub"]
 
-[ext_resource type="FontFile" uid="uid://cptj54oab7o4r" path="res://fonts/DePixelHalbfett.ttf" id="1_tj11c"]
+[ext_resource type="FontFile" uid="uid://bbll0l4dcuwmb" path="res://fonts/Rubik-VariableFont_wght.ttf" id="1_dejsb"]
 
 [resource]
-default_font = ExtResource("1_tj11c")
+default_font = ExtResource("1_dejsb")
 default_font_size = 40

@@ -2,13 +2,13 @@
 
 importer="font_data_dynamic"
 type="FontFile"
-uid="uid://cptj54oab7o4r"
-path="res://.godot/imported/DePixelHalbfett.ttf-2bb0419ed694fc815deafa9668c3afcd.fontdata"
+uid="uid://bbll0l4dcuwmb"
+path="res://.godot/imported/Rubik-VariableFont_wght.ttf-977bc1c1a3ef1edfc2f87865066e95e2.fontdata"
 
 [deps]
 
-source_file="res://fonts/DePixelHalbfett.ttf"
-dest_files=["res://.godot/imported/DePixelHalbfett.ttf-2bb0419ed694fc815deafa9668c3afcd.fontdata"]
+source_file="res://fonts/Rubik-VariableFont_wght.ttf"
+dest_files=["res://.godot/imported/Rubik-VariableFont_wght.ttf-977bc1c1a3ef1edfc2f87865066e95e2.fontdata"]
 
 [params]
 

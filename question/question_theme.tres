@@ -1,0 +1,17 @@
+[gd_resource type="Theme" load_steps=2 format=3 uid="uid://p8gcgrp1qpr7"]
+
+[ext_resource type="FontFile" uid="uid://bbll0l4dcuwmb" path="res://fonts/Rubik-VariableFont_wght.ttf" id="1_ma23h"]
+
+[resource]
+default_font = ExtResource("1_ma23h")
+default_font_size = 40
+Button/colors/font_color = Color(0.113725, 0.113725, 0.113725, 1)
+Button/colors/font_outline_color = Color(0.113725, 0.113725, 0.113725, 1)
+Button/constants/outline_size = 3
+Label/colors/font_color = Color(1, 1, 1, 1)
+Label/colors/font_outline_color = Color(1, 1, 1, 1)
+Label/constants/outline_size = 5
+Label/font_sizes/font_size = 50
+RichTextLabel/colors/default_color = Color(0.113725, 0.113725, 0.113725, 1)
+RichTextLabel/colors/font_outline_color = Color(0.113725, 0.113725, 0.113725, 1)
+RichTextLabel/constants/outline_size = 3
