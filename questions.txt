@@ -1,30 +1,30 @@
-Manifesto Ágil,Fácil,O Manifesto Ágil valoriza:,A,Processos e ferramentas sobre indivíduos e interações,B,Documentação extensiva sobre software em funcionamento,C,*Colaboração com o cliente sobre contrato com o cliente,D,Seguir um plano sobre responder a mudanças
-Manifesto Ágil,Fácil,Em que ano o Manifesto Ágil foi criado?,A,1995,B,*2001,C,2015,D,2020
-Manifesto Ágil,Médio,Quantos princípios fundamentam o Manifesto Ágil?,A,10,B,*12,C,14,D,16
-Manifesto Ágil,Médio,Qual é a medida primária de progresso segundo o Manifesto Ágil?,A,Quantidade de documentação produzida,B,Número de reuniões concluídas,C,*Software funcionando,D,A satisfação do cliente
-Manifesto Ágil,Difícil,Onde o Manifesto Ágil foi redigido?,A,Vancouver, Canadá,B,Orlando, Flórida,C,*Snowbird, Utah,D,São Francisco, Califórnia
-Manifesto Ágil,Difícil,Quantas pessoas assinaram o Manifesto Ágil originalmente?,A,10,B,*17,C,25,D,32
-Scrum,Fácil,Qual é a função do Scrum Master em um time Scrum?,A,Delegar tarefas ao time,B,*Orientar o time e ajudar a remover impedimentos,C,Desenvolver o software,D,Priorizar o backlog do produto
-Scrum,Fácil,Qual é a duração típica de um sprint em Scrum?,A,1 semana,B,*1 a 4 semanas,C,3 meses,D,6 meses
-Scrum,Médio,O que é o Product Backlog em Scrum?,A,Um resumo dos requisitos que o cliente deseja,B,Um documento que lista tarefas já concluídas,C,*Uma lista ordenada de itens de trabalho a serem desenvolvidos,D,Um relatório sobre o desempenho da equipe
-Scrum,Médio,Qual é a responsabilidade do proprietário do produto em Scrum?,A,Desenvolver o software,B,Orientar a equipe técnica nas tarefas diárias,C,*Priorizar o backlog do produto e garantir que as necessidades do cliente sejam atendidas,D,Facilitar as reuniões diárias
-Scrum,Difícil,O que é um "burndown chart" em Scrum?,A,Um gráfico que mostra a eficiência da equipe em desenvolver software,B,*Um gráfico que mostra a quantidade de trabalho restante ao longo do tempo,C,Um gráfico que mostra a qualidade do código produzido,D,Um gráfico que mostra a quantidade de tarefas finalizadas em cada sprint
-Scrum,Difícil,Quais são os cinco valores de Scrum?,A,Honestidade, Excelência, Flexibilidade, Colaboração, Integridade,B,*Coragem, Foco, Compromisso, Respeito, Abertura,C,Competência, Autonomia, Responsabilidade, Justiça, Transparência,D,Eficiência, Criatividade, Cooperação, Lealdade, Persistência
-XP,Fácil,Qual é uma das práticas principais do Extreme Programming (XP)?,A,Desenvolvimento individual,B,Code review extensivo,C,*Programação em par,D,Entregar software apenas ao final do projeto
-XP,Fácil,O que é "refactoring" em XP?,A,Um método para revisar reuniões,B,*Uma técnica para melhorar o código sem alterar sua funcionalidade,C,Um padrão de design para gestão de projetos,D,Uma prática para corrigir código mal escrito
-XP,Médio,O que é a "integração contínua" em XP?,A,*Prática de integração de código várias vezes ao dia para evitar conflitos,B,Método de revisão periódica do código com o cliente,C,Estratégia de desenvolver e testar código apenas no final do projeto,D,Uma técnica de planejamento para melhorar a comunicação entre as equipes
-XP,Médio,Qual é uma prática de teste recomendada pelo Extreme Programming?,A,Testar o software apenas ao final do projeto,B,*Criar testes automatizados antes de implementar o código,C,Delegar todos os testes a uma equipe de controle de qualidade,D,Fazer apenas testes manuais
-XP,Difícil,O que é a "metáfora" em XP?,A,Um recurso literário para explicar o software,B,Um padrão de código para estruturar classes e funções,C,*Uma técnica para descrever como o software deve funcionar,D,Um processo de codificação simbólica
-XP,Difícil,Quem é um dos principais autores do Extreme Programming?,A,Martin Fowler,B,*Kent Beck,C,Robert C. Martin,D,Ward Cunningham
-Lean,Fácil,Qual é um princípio básico de Lean?,A,Aumentar a complexidade dos processos,B,*Focar em otimização de processos e eliminação de desperdícios,C,Reduzir a comunicação entre as equipes,D,Estabelecer burocracia para tomada de decisões
-Lean,Fácil,O que é "Just-in-time" em Lean?,A,Uma prática que visa a entrega de produtos com antecedência,B,Uma técnica para armazenamento de materiais em excesso,C,*Um método de produção que busca minimizar estoques,D,Uma abordagem para empilhar produtos para futuras vendas
-Lean,Médio,O que significa "muda" em Lean?,A,Fluxo contínuo,B,Colaboração entre equipes,C,*Desperdício,D,Planejamento estratégico
-Lean,Médio,Qual é a ferramenta de Lean que se concentra em organizar o ambiente de trabalho?,A,6 Sigma,B,PDCA,C,*5S,D,Poka-Yoke
-Lean,Difícil,Qual é o principal objetivo do Lean?,A,Maximize o lucro sem considerar os clientes,B,Reduzir custos ignorando a qualidade,C,*Melhorar a eficiência mantendo a qualidade e satisfação do cliente,D,Criar produtos de baixa qualidade para economizar recursos
-Lean,Difícil,Lean teve origem em qual indústria?,A,Tecnologia,B,*Automobilística,C,Alimentícia,D,Moda
-Kanban,Fácil,O que é um quadro Kanban?,A,Um quadro para desenhos artísticos,B,*Uma técnica para acompanhar as tarefas de uma equipe,C,Um quadro de horários de funcionários,D,Um quadro para registrar custos de um projeto
-Kanban,Fácil,Qual é um princípio do Kanban?,A,Definir tarefas e não permitir mudanças,B,Focar em planejamentos longos,C,*Limitar o trabalho em andamento,D,Promover múltiplas tarefas simultâneas
-Kanban,Médio,Como é possível medir a eficiência do Kanban?,A,Pela quantidade de tarefas concluídas diariamente,B,*Pelo tempo médio de ciclo das tarefas,C,Pelo número de reuniões semanais,D,Pelo volume total de trabalho acumulado
-Kanban,Médio,Qual é uma vantagem de usar Kanban?,A,Desorganizar o trabalho para torná-lo mais criativo,B,Aumentar a complexidade dos projetos,C,*Melhorar a visualização e gestão do fluxo de trabalho,D,Centralizar todas as decisões em um gerente
-Kanban,Difícil,Qual é o termo usado para descrever a redução de ciclos em Kanban?,A,Muda,B,*Kaizen,C,Chaku,D,Poka-Yoke
-Kanban,Difícil,Kanban teve origem em qual país?,A,Estados Unidos,B,*Japão,C,Alemanha,D,China
+manifesto_agil,facil,O Manifesto Ágil valoriza:, Processos e ferramentas sobre indivíduos e interações, Documentação extensiva sobre software em funcionamento, *Colaboração com o cliente sobre contrato com o cliente, Seguir um plano sobre responder a mudanças
+manifesto_agil,facil,Em que ano o Manifesto Ágil foi criado?, 1995, *2001, 2015, 2020
+manifesto_agil,medio,Quantos princípios fundamentam o Manifesto Ágil?, 10, *12, 14, 16
+manifesto_agil,medio,Qual é a medida primária de progresso segundo o Manifesto Ágil?, Quantidade de documentação produzida, Número de reuniões concluídas, *Software funcionando, A satisfação do cliente
+manifesto_agil,dificil,Onde o Manifesto Ágil foi redigido?, Vancouver, Canadá, Orlando, Flórida, *Snowbird, Utah, São Francisco, Califórnia
+manifesto_agil,dificil,Quantas pessoas assinaram o Manifesto Ágil originalmente?, 10, *17, 25, 32
+scrum,facil,Qual é a função do Scrum Master em um time Scrum?, Delegar tarefas ao time, *Orientar o time e ajudar a remover impedimentos, Desenvolver o software, Priorizar o backlog do produto
+scrum,facil,Qual é a duração típica de um sprint em Scrum?, 1 semana, *1 a 4 semanas, 3 meses, 6 meses
+scrum,medio,O que é o Product Backlog em Scrum?, Um resumo dos requisitos que o cliente deseja, Um documento que lista tarefas já concluídas, *Uma lista ordenada de itens de trabalho a serem desenvolvidos, Um relatório sobre o desempenho da equipe
+scrum,medio,Qual é a responsabilidade do proprietário do produto em Scrum?, Desenvolver o software, *Orientar a equipe técnica nas tarefas diárias, Priorizar o backlog do produto e garantir que as necessidades do cliente sejam atendidas, Facilitar as reuniões diárias
+scrum,dificil,O que é um "burndown chart" em Scrum?, Um gráfico que mostra a eficiência da equipe em desenvolver software, *Um gráfico que mostra a quantidade de trabalho restante ao longo do tempo, Um gráfico que mostra a qualidade do código produzido, Um gráfico que mostra a quantidade de tarefas finalizadas em cada sprint
+scrum,dificil,Quais são os cinco valores de Scrum?, Honestidade, Excelência, Flexibilidade, Colaboração, Integridade, *Coragem, Foco, Compromisso, Respeito, Abertura, Competência, Autonomia, Responsabilidade, Justiça, Transparência, Eficiência, Criatividade, Cooperação, Lealdade, Persistência
+xp,facil,Qual é uma das práticas principais do Extreme Programming (XP)?, Deve estar programando em par, Code review extensivo, *Programação em par, Entregar software apenas ao final do projeto
+xp,facil,O que é "refactoring" em XP?, Um método para revisar reuniões, *Uma técnica para melhorar o código sem alterar sua funcionalidade, Um padrão de design para gestão de projetos, Uma prática para corrigir código mal escrito
+xp,medio,O que é a "integração contínua" em XP?, Prática de integração de código várias vezes ao dia para evitar conflitos, Método de revisão periódica do código com o cliente, *Estratégia de desenvolver e testar código apenas no final do projeto, Uma técnica de planejamento para melhorar a comunicação entre as equipes
+xp,medio,Qual é uma prática de teste recomendada pelo Extreme Programming?, Testar o software apenas ao final do projeto, *Criar testes automatizados antes de implementar o código, Delegar todos os testes a uma equipe de controle de qualidade, Fazer apenas testes manuais
+xp,dificil,O que é a "metáfora" em XP?, Um recurso literário para explicar o software, Um padrão de código para estruturar classes e funções, *Uma técnica para descrever como o software deve funcionar, Um processo de codificação simbólica
+xp,dificil,Quem é um dos principais autores do Extreme Programming?, Martin Fowler, *Kent Beck, Robert C. Martin, Ward Cunningham
+lean,facil,Qual é um princípio básico de Lean?, Aumentar a complexidade dos processos, *Focar em otimização de processos e eliminação de desperdícios, Reduzir a comunicação entre as equipes, Estabelecer burocracia para tomada de decisões
+lean,facil,O que é "Just-in-time" em Lean?, Uma prática que visa a entrega de produtos com antecedência, Uma técnica para armazenamento de materiais em excesso, *Um método de produção que busca minimizar estoques, Uma abordagem para empilhar produtos para futuras vendas
+lean,medio,O que significa "muda" em Lean?, Fluxo contínuo, Colaboração entre equipes, *Desperdício, Planejamento estratégico
+lean,medio,Qual é a ferramenta de Lean que se concentra em organizar o ambiente de trabalho?, 6 Sigma, PDCA, *5S, Poka-Yoke
+lean,dificil,Qual é o principal objetivo do Lean?, Maximize o lucro sem considerar os clientes, Reduzir custos ignorando a qualidade, *Melhorar a eficiência mantendo a qualidade e satisfação do cliente, Criar produtos de baixa qualidade para economizar recursos
+lean,dificil,Lean teve origem em qual indústria?, Tecnologia, *Automobilística, Alimentícia, Moda
+kanban,facil,O que é um quadro Kanban?, Um quadro para desenhos artísticos, *Uma técnica para acompanhar as tarefas de uma equipe, Um quadro de horários de funcionários, Um quadro para registrar custos de um projeto
+kanban,facil,Qual é um princípio do Kanban?, Definir tarefas e não permitir mudanças, *Focar em planejamentos longos, Limitar o trabalho em andamento, Promover múltiplas tarefas simultâneas
+kanban,medio,Como é possível medir a eficiência do Kanban?, Pela quantidade de tarefas concluídas diariamente, *Pelo tempo médio de ciclo das tarefas, Pelo volume total de trabalho acumulado
+kanban,medio,Qual é uma vantagem de usar Kanban?, Desorganizar o trabalho para torná-lo mais criativo, Aumentar a complexidade dos projetos, *Melhorar a visualização e gestão do fluxo de trabalho, Centralizar todas as decisões em um gerente
+kanban,dificil,Qual é o termo usado para descrever a redução de ciclos em Kanban?, Muda, *Kaizen, Chaku, Poka-Yoke
+kanban,dificil,Kanban teve origem em qual país?, Estados Unidos, *Japão, Alemanha, China

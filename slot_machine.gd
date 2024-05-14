@@ -30,9 +30,6 @@ var _stopped_count = 0
     preload("res://resources/double_arrow.tres"),
 ]
 
-
-
-
 @export_range (1,20) var reels: int= 5
 @export_range (1,20) var tiles_per_reel: int= 4
 # Defines how long the reels are spinning
@@ -75,7 +72,12 @@ var runs_stopped := 0
 var total_runs : int
 var spacement := Vector2(0,0)
 
+var questions_reader = preload("res://questions_data.gd")
+var questions_matrix = null
+
 func _ready():
+    questions_matrix = questions_reader.new().load_text_file("res://questions.txt")
+
     pivot.position.x -= tile_size.x
     # Initializes grid of tiles
     for col in reels:
@@ -140,7 +142,13 @@ func _stop() -> void:
             get_tile(1, 1).data.id,
             get_tile(2, 1).data.id
         ])
-    
+        
+    var q = []
+    for i in questions_matrix:
+        if i[0] == get_tile(0, 1).data.id and i[1] == get_tile(1, 1).data.id:
+            q.append(i) 
+
+    print(q[randi_range(0, q.size() - 1)])
 
 # Starts moving all tiles of the given reel
 func _spin_reel(reel :int) -> void:

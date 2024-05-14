@@ -7,7 +7,7 @@ signal wheel_stopped()
 @export var impulse_distance_before_play = -50
 @export var vertical_separation = 20
 @export var sprite_size_y = 128
-@export var values: Array[String] = ["easy", "medium", "hard", "very hard"]
+@export var values: Array[String] = ["easy", "medium", "hard"]
 
 @onready var D_glass = $DebugGlass
 const BELLOW_VISIBLE = 1
