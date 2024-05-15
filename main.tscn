@@ -1,68 +1,76 @@
-[gd_scene load_steps=9 format=3 uid="uid://bep2donq4o66s"]
+[gd_scene load_steps=10 format=3 uid="uid://bep2donq4o66s"]
 
 [ext_resource type="PackedScene" uid="uid://di41ccpbftbje" path="res://slot_machine/slot_machine.tscn" id="1_lyo8y"]
 [ext_resource type="Script" path="res://main.gd" id="1_v2djk"]
-[ext_resource type="Texture2D" uid="uid://wi6prvij8wtm" path="res://sprites/canvas-back.png" id="2_2e3i7"]
+[ext_resource type="Texture2D" uid="uid://cmjn8rf5i0oi4" path="res://ui/background.png" id="3_dklrk"]
+[ext_resource type="Theme" uid="uid://dk011qcxfrk17" path="res://ui/ui_theme.tres" id="3_mu71r"]
 [ext_resource type="Theme" uid="uid://7bhmgldpi7ub" path="res://slot_tile/tile-font.tres" id="3_p6v5f"]
 [ext_resource type="FontFile" uid="uid://bbll0l4dcuwmb" path="res://fonts/Rubik-VariableFont_wght.ttf" id="4_8br3i"]
-[ext_resource type="Texture2D" uid="uid://cw2t7ynreupkq" path="res://sprites/icons/clock.png" id="5_7xbkl"]
+[ext_resource type="Texture2D" uid="uid://brwuxbcf2dh03" path="res://ui/question-bg.png" id="4_g51i8"]
 [ext_resource type="PackedScene" uid="uid://dfxfeqlfoquo1" path="res://question/question.tscn" id="6_pv1w7"]
-
-[sub_resource type="LabelSettings" id="LabelSettings_davd1"]
-font = ExtResource("4_8br3i")
-font_size = 100
+[ext_resource type="PackedScene" uid="uid://foxe13v4vmuw" path="res://button-answer.tscn" id="7_qywn3"]
 
 [node name="main" type="Node2D"]
 script = ExtResource("1_v2djk")
 question_prefab = ExtResource("6_pv1w7")
 
-[node name="ColorRect" type="ColorRect" parent="."]
-offset_left = -113.0
-offset_top = -20.0
-offset_right = 1964.0
-offset_bottom = 1141.0
-color = Color(0.137255, 0.129412, 0.192157, 1)
-metadata/_edit_lock_ = true
+[node name="Background" type="TextureRect" parent="."]
+custom_minimum_size = Vector2(1920, 1080)
+offset_right = 1920.0
+offset_bottom = 1080.0
+theme = ExtResource("3_mu71r")
+texture = ExtResource("3_dklrk")
 
-[node name="CanvasBack" type="TextureRect" parent="."]
-offset_left = 49.0
-offset_top = 35.8035
-offset_right = 1273.0
-offset_bottom = 654.803
-texture = ExtResource("2_2e3i7")
+[node name="QuestionBg" type="TextureRect" parent="Background"]
+self_modulate = Color(0.0196078, 0.219608, 0.384314, 1)
+layout_mode = 1
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_right = 1155.0
+grow_vertical = 2
+texture = ExtResource("4_g51i8")
 
-[node name="CanvasBack2" type="TextureRect" parent="."]
-offset_left = 34.0
-offset_top = 31.8034
-offset_right = 1258.0
-offset_bottom = 650.803
-rotation = -0.00144971
-texture = ExtResource("2_2e3i7")
+[node name="VBoxContainer" type="VBoxContainer" parent="Background"]
+layout_mode = 1
+anchors_preset = 11
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -705.0
+offset_top = 305.0
+offset_right = -58.0
+offset_bottom = -49.0
+grow_horizontal = 0
+grow_vertical = 2
 
-[node name="Label" type="Label" parent="."]
-self_modulate = Color(1, 1, 1, 0.168627)
-offset_left = 66.0
-offset_top = 812.0
-offset_right = 573.0
-offset_bottom = 949.0
-text = "PRESS TAB"
-label_settings = SubResource("LabelSettings_davd1")
+[node name="Button" parent="Background/VBoxContainer" instance=ExtResource("7_qywn3")]
+layout_mode = 2
+
+[node name="Button2" parent="Background/VBoxContainer" instance=ExtResource("7_qywn3")]
+layout_mode = 2
+
+[node name="Button3" parent="Background/VBoxContainer" instance=ExtResource("7_qywn3")]
+layout_mode = 2
+
+[node name="Button4" parent="Background/VBoxContainer" instance=ExtResource("7_qywn3")]
+layout_mode = 2
 
 [node name="SlotMachine" parent="." instance=ExtResource("1_lyo8y")]
-position = Vector2(-553, 863)
+position = Vector2(-576, 926)
 scale = Vector2(0.8, 0.8)
 reels = 3
 speed = 3.0
 
 [node name="Roll" type="Button" parent="."]
-offset_left = 1460.0
-offset_top = 921.0
-offset_right = 1859.0
-offset_bottom = 1045.0
+offset_left = 1372.0
+offset_top = 115.0
+offset_right = 1771.0
+offset_bottom = 239.0
 theme = ExtResource("3_p6v5f")
 text = "Roll"
 
 [node name="output" type="RichTextLabel" parent="."]
+visible = false
 offset_left = 1443.0
 offset_top = 58.0
 offset_right = 1850.0
@@ -71,7 +79,5 @@ theme_override_fonts/normal_font = ExtResource("4_8br3i")
 theme_override_font_sizes/normal_font_size = 20
 text = "none"
 
-[node name="Clock" type="Sprite2D" parent="."]
-visible = false
-position = Vector2(1691, 599)
-texture = ExtResource("5_7xbkl")
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(0.3, 0.3)

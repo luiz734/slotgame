@@ -1,0 +1,54 @@
+[gd_scene load_steps=3 format=3 uid="uid://foxe13v4vmuw"]
+
+[ext_resource type="Texture2D" uid="uid://d4curkghjrh8y" path="res://ui/button.png" id="1_ufsfw"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_2yfp1"]
+font_size = 32
+font_color = Color(0.392157, 0.392157, 0.392157, 1)
+outline_size = 3
+outline_color = Color(0.392157, 0.392157, 0.392157, 1)
+
+[node name="Button" type="NinePatchRect"]
+custom_minimum_size = Vector2(647, 178)
+offset_right = 647.0
+offset_bottom = 178.0
+size_flags_vertical = 3
+texture = ExtResource("1_ufsfw")
+patch_margin_left = 60
+patch_margin_top = 60
+patch_margin_right = 60
+patch_margin_bottom = 60
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 40
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 40
+theme_override_constants/margin_bottom = 20
+
+[node name="Label" type="Label" parent="MarginContainer"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+text = "Depende teste teste Depende teste teste Depende teste teste ."
+label_settings = SubResource("LabelSettings_2yfp1")
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 3
+text = "
+"
+flat = true
+alignment = 0
+text_overrun_behavior = 4

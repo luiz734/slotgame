@@ -1,0 +1,6 @@
+[gd_resource type="Theme" load_steps=2 format=3 uid="uid://dk011qcxfrk17"]
+
+[ext_resource type="FontFile" uid="uid://bbll0l4dcuwmb" path="res://fonts/Rubik-VariableFont_wght.ttf" id="2_rp1a6"]
+
+[resource]
+default_font = ExtResource("2_rp1a6")
