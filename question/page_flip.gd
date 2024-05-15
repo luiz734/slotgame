@@ -31,6 +31,7 @@ func _ready():
     pass
     
 func play_pageflip_animation():
+
     var tween_x = get_tree().create_tween()
     tween_x.set_ease(Tween.EASE_IN).set_trans(Tween.TRANS_LINEAR)
     tween_x.tween_method(func(x: float):

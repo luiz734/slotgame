@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://bep2donq4o66s"]
+[gd_scene load_steps=12 format=3 uid="uid://bep2donq4o66s"]
 
 [ext_resource type="PackedScene" uid="uid://di41ccpbftbje" path="res://slot_machine/slot_machine.tscn" id="1_lyo8y"]
 [ext_resource type="Script" path="res://main.gd" id="1_v2djk"]
@@ -9,6 +9,12 @@
 [ext_resource type="Texture2D" uid="uid://brwuxbcf2dh03" path="res://ui/question-bg.png" id="4_g51i8"]
 [ext_resource type="PackedScene" uid="uid://dfxfeqlfoquo1" path="res://question/question.tscn" id="6_pv1w7"]
 [ext_resource type="PackedScene" uid="uid://foxe13v4vmuw" path="res://button-answer.tscn" id="7_qywn3"]
+[ext_resource type="PackedScene" uid="uid://87tq3ucqyrlf" path="res://ui/progress_timer.tscn" id="10_hytrk"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_u5ajj"]
+font = ExtResource("4_8br3i")
+font_size = 60
+outline_size = 6
 
 [node name="main" type="Node2D"]
 script = ExtResource("1_v2djk")
@@ -56,28 +62,40 @@ layout_mode = 2
 layout_mode = 2
 
 [node name="SlotMachine" parent="." instance=ExtResource("1_lyo8y")]
+z_index = 1
 position = Vector2(-576, 926)
 scale = Vector2(0.8, 0.8)
 reels = 3
 speed = 3.0
 
 [node name="Roll" type="Button" parent="."]
-offset_left = 1372.0
-offset_top = 115.0
-offset_right = 1771.0
-offset_bottom = 239.0
+offset_left = 719.0
+offset_top = 930.0
+offset_right = 1118.0
+offset_bottom = 1054.0
 theme = ExtResource("3_p6v5f")
 text = "Roll"
 
 [node name="output" type="RichTextLabel" parent="."]
-visible = false
-offset_left = 1443.0
-offset_top = 58.0
-offset_right = 1850.0
-offset_bottom = 323.0
+offset_left = 1317.0
+offset_top = 172.0
+offset_right = 1769.0
+offset_bottom = 278.0
 theme_override_fonts/normal_font = ExtResource("4_8br3i")
 theme_override_font_sizes/normal_font_size = 20
 text = "none"
 
-[node name="Camera2D" type="Camera2D" parent="."]
-zoom = Vector2(0.3, 0.3)
+[node name="ProgressTimer" parent="." instance=ExtResource("10_hytrk")]
+offset_left = 1229.0
+offset_top = 62.0
+offset_right = 1852.0
+offset_bottom = 112.0
+
+[node name="Label" type="Label" parent="."]
+self_modulate = Color(1, 1, 1, 0.133333)
+offset_left = 111.0
+offset_top = 911.0
+offset_right = 416.0
+offset_bottom = 983.0
+text = "PRESS TAB"
+label_settings = SubResource("LabelSettings_u5ajj")
