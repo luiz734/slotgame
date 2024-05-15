@@ -1,0 +1,23 @@
+[gd_scene load_steps=3 format=3 uid="uid://di41ccpbftbje"]
+
+[ext_resource type="Script" path="res://slot_machine.gd" id="1_jvnfs"]
+[ext_resource type="Texture2D" uid="uid://c104qi8hqg81o" path="res://sprites/slotmachine.png" id="2_12rhw"]
+
+[node name="SlotMachine" type="Node2D"]
+script = ExtResource("1_jvnfs")
+speed = 1.0
+
+[node name="Slotmachine" type="Sprite2D" parent="."]
+z_index = 1
+texture_filter = 1
+scale = Vector2(12, 12)
+texture = ExtResource("2_12rhw")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_left = -304.0
+offset_top = -118.0
+offset_right = 344.0
+offset_bottom = 158.0
+color = Color(0.701961, 0.701961, 0.701961, 1)
+
+[node name="pivot" type="Node2D" parent="."]
