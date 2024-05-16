@@ -29,7 +29,8 @@ func set_size(new_size: Vector2):
     if not sprite:
         await ready
     ## small hack to space horizontally
-    size = Vector2(300, 300)
+    size = Vector2(600, 600)
+    size = new_size
     sprite.scale = size / sprite.texture.get_size()
 
 

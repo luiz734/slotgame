@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://46l8b1kml041"
-path="res://.godot/imported/slot-tile.png-44460fc00139051dc1fa13cc8a95c154.ctex"
+uid="uid://cpp2cmxnwga4t"
+path="res://.godot/imported/lever-ball.png-f64620448e1be8eed6320a5b467e0f4d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://ui/slot-tile.png"
-dest_files=["res://.godot/imported/slot-tile.png-44460fc00139051dc1fa13cc8a95c154.ctex"]
+source_file="res://ui/lever-ball.png"
+dest_files=["res://.godot/imported/lever-ball.png-f64620448e1be8eed6320a5b467e0f4d.ctex"]
 
 [params]
 
