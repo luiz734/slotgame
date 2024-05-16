@@ -61,6 +61,7 @@ _data = {
 }
 
 [node name="SlotTile" type="Node2D"]
+z_index = 20
 script = ExtResource("1_3xwgx")
 
 [node name="pivot" type="Node2D" parent="."]

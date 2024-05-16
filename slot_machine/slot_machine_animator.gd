@@ -11,7 +11,7 @@ func _ready():
     assert(animation_player, "Missing animation_player")
 
     _hide_position = global_position
-    _visible_position = global_position + Vector2(1000, 0)
+    _visible_position = global_position + Vector2(0, 1080)
     # owner.position = _hide_position
 
     Globals.slot_start.connect(func():
@@ -34,6 +34,8 @@ func _process(delta):
     if Input.is_action_just_pressed("show_slot"):
         if _is_hidden:
             animation_enter()
+            Globals.overlay_on.emit()
         else:
             animation_exit()
+            Globals.overlay_off.emit()
 

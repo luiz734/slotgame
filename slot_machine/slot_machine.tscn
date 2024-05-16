@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://di41ccpbftbje"]
+[gd_scene load_steps=17 format=3 uid="uid://di41ccpbftbje"]
 
 [ext_resource type="Script" path="res://slot_machine/slot_machine.gd" id="1_jvnfs"]
 [ext_resource type="Script" path="res://slot_machine/slot_machine_animator.gd" id="2_jcs7i"]
@@ -8,6 +8,8 @@
 [ext_resource type="Texture2D" uid="uid://bkx7dj0ynv8ss" path="res://sprites/slot_tip.png" id="5_o65h8"]
 [ext_resource type="Script" path="res://slot_machine/slot_handler.gd" id="6_m1nh5"]
 [ext_resource type="Texture2D" uid="uid://46l8b1kml041" path="res://ui/slot-fill.png" id="6_xxfdr"]
+[ext_resource type="Shader" path="res://blur.gdshader" id="9_osya4"]
+[ext_resource type="Script" path="res://slot_machine/slot_machine_button.gd" id="10_thqs5"]
 
 [sub_resource type="Animation" id="Animation_hdl1u"]
 length = 0.001
@@ -47,6 +49,10 @@ _data = {
 "pull": SubResource("Animation_j3mma")
 }
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_wtgbp"]
+shader = ExtResource("9_osya4")
+shader_parameter/blur_amount = 2.0
+
 [sub_resource type="ViewportTexture" id="ViewportTexture_6jy35"]
 viewport_path = NodePath("SubViewport")
 
@@ -73,6 +79,7 @@ size = Vector2i(834, 326)
 position = Vector2(420, 160)
 
 [node name="AnimatorPivot" type="Node2D" parent="." node_paths=PackedStringArray("animation_player")]
+material = SubResource("ShaderMaterial_wtgbp")
 script = ExtResource("2_jcs7i")
 animation_player = NodePath("../AnimationPlayer")
 
@@ -137,18 +144,12 @@ move_part = NodePath("../SlotTip")
 position = Vector2(0, -141)
 texture = ExtResource("5_o65h8")
 
-[node name="ColorRect" type="ColorRect" parent="."]
-self_modulate = Color(0.14902, 0.14902, 0.14902, 0.27451)
-custom_minimum_size = Vector2(1920, 1080)
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -1152.0
-offset_top = -648.0
-offset_right = 1152.0
-offset_bottom = 648.0
-grow_horizontal = 2
-grow_vertical = 2
-size_flags_horizontal = 4
+[node name="Button" type="Button" parent="AnimatorPivot/SlotSide"]
+custom_minimum_size = Vector2(100, 100)
+offset_left = -86.0
+offset_top = -194.0
+offset_right = 84.0
+offset_bottom = 118.0
+focus_mode = 0
+flat = true
+script = ExtResource("10_thqs5")

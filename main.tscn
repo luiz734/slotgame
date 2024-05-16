@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://bep2donq4o66s"]
+[gd_scene load_steps=13 format=3 uid="uid://bep2donq4o66s"]
 
 [ext_resource type="PackedScene" uid="uid://di41ccpbftbje" path="res://slot_machine/slot_machine.tscn" id="1_lyo8y"]
 [ext_resource type="Script" path="res://main.gd" id="1_v2djk"]
@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://brwuxbcf2dh03" path="res://ui/question-bg.png" id="4_g51i8"]
 [ext_resource type="PackedScene" uid="uid://dfxfeqlfoquo1" path="res://question/question.tscn" id="6_pv1w7"]
 [ext_resource type="PackedScene" uid="uid://foxe13v4vmuw" path="res://button-answer.tscn" id="7_qywn3"]
+[ext_resource type="Script" path="res://overlay.gd" id="10_acmwv"]
 [ext_resource type="PackedScene" uid="uid://87tq3ucqyrlf" path="res://ui/progress_timer.tscn" id="10_hytrk"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_u5ajj"]
@@ -61,20 +62,13 @@ layout_mode = 2
 [node name="Button4" parent="Background/VBoxContainer" instance=ExtResource("7_qywn3")]
 layout_mode = 2
 
-[node name="SlotMachine" parent="." instance=ExtResource("1_lyo8y")]
-z_index = 1
-position = Vector2(1075, 515)
-scale = Vector2(0.8, 0.8)
-reels = 3
-speed = 3.0
-
 [node name="Roll" type="Button" parent="."]
 offset_left = 719.0
 offset_top = 930.0
 offset_right = 1118.0
 offset_bottom = 1054.0
 theme = ExtResource("3_p6v5f")
-text = "Roll"
+text = "Next"
 
 [node name="output" type="RichTextLabel" parent="."]
 offset_left = 1317.0
@@ -99,3 +93,24 @@ offset_right = 416.0
 offset_bottom = 983.0
 text = "PRESS TAB"
 label_settings = SubResource("LabelSettings_u5ajj")
+
+[node name="Overlay" type="ColorRect" parent="."]
+z_index = 10
+custom_minimum_size = Vector2(1920, 1080)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 1920.0
+offset_bottom = 1080.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(1, 1, 1, 0)
+script = ExtResource("10_acmwv")
+_overlay_color = Color(0, 0, 0, 0.329412)
+
+[node name="SlotMachine" parent="." instance=ExtResource("1_lyo8y")]
+z_index = 20
+position = Vector2(897, -636)
+scale = Vector2(0.8, 0.8)
+reels = 3
+speed = 3.0

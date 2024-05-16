@@ -26,7 +26,7 @@ var base_pivot = flip_pivot
 var _flip_duration_sec: float = 1.5
 
 func _ready():
-    print(size)
+    # print(size)
     #material.set_shader_parameter("scale",global_scale)
     pass
     

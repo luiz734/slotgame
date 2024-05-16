@@ -2,6 +2,9 @@ extends Node
 
 signal slot_start
 
+signal overlay_on
+signal overlay_off
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass  # Replace with function body.
