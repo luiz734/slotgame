@@ -9,21 +9,17 @@ signal stopped_all(tiles)
 var _stopped_count = 0
 
 @export var pictures_row1: Array[SlotTileData] = [
-    preload("res://resources/bomb.tres"),
-    preload("res://resources/arrow_right.tres"),
-    preload("res://resources/2x.tres"),
-    preload("res://resources/brain.tres"),
-    preload("res://resources/clock.tres"),
-    preload("res://resources/double_arrow.tres"),
+    preload("res://resources/xp.tres"),
+    preload("res://resources/kanban.tres"),
+    preload("res://resources/lean.tres"),
+    preload("res://resources/manifesto_agil.tres"),
+    preload("res://resources/scrum.tres"),
 ]
 
 @export var pictures_row2: Array[SlotTileData] = [
-    preload("res://resources/bomb.tres"),
-    preload("res://resources/arrow_right.tres"),
-    preload("res://resources/2x.tres"),
-    preload("res://resources/brain.tres"),
-    preload("res://resources/clock.tres"),
-    preload("res://resources/double_arrow.tres"),
+    preload("res://resources/facil.tres"),
+    preload("res://resources/medio.tres"),
+    preload("res://resources/dificil.tres"),
 ]
 
 @export var pictures_row3: Array[SlotTileData] = [
