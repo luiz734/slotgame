@@ -57,3 +57,6 @@ func spin_up():
 
 func spin_down():
     animation_player.play("spin_down")
+
+func blink():
+    self_modulate = Color.CYAN

@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://cprko42pycatd"]
+
+[ext_resource type="Script" path="res://score_animation.gd" id="1_x74ci"]
+[ext_resource type="Resource" uid="uid://75tbirq1ifkj" path="res://resources/2x.tres" id="2_fpqbb"]
+
+[node name="ScoreAnimation" type="Node2D"]
+script = ExtResource("1_x74ci")
+data = ExtResource("2_fpqbb")
