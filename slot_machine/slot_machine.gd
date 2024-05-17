@@ -77,8 +77,12 @@ var runs_stopped := 0
 var total_runs: int
 var spacement := Vector2(0, 0)
 
+var questions_reader = preload("res://question/question_data.gd")
+var questions_matrix = []
 
 func _ready():
+    questions_matrix = questions_reader.new().load_text_file("res://question/question.txt")
+    
     pivot.position.x -= tile_size.x
     # Initializes grid of tiles
     for col in reels:
@@ -145,6 +149,16 @@ func _stop() -> void:
     if _stopped_count == reels + 1:
         stopped_all.emit([get_tile(0, 1).data.id, get_tile(1, 1).data.id, get_tile(2, 1).data.id])
 
+    var questions = []
+    if _stopped_count == 1:
+        for i in questions_matrix:
+            if i[0] == get_tile(0, 1).data.id and i[1] == get_tile(1, 1).data.id:       
+                var values = []
+                for a in i:
+                    values.append(a.strip_edges().replace("[^a-zA-Z0-9\\s]", "").replace("\\", ""))
+                questions.append(values)
+        if questions.size() > 0:
+            print(questions[randi_range(0, questions.size() - 1)])
 
 # Starts moving all tiles of the given reel
 func _spin_reel(reel: int) -> void:
