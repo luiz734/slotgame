@@ -5,7 +5,7 @@ var SlotTile: PackedScene = preload("res://slot_tile/slot_tile.tscn")
 # Stores the SlotTile's SPIN_UP animation distance
 const SPIN_UP_DISTANCE = 100.0
 signal stopped
-signal stopped_all(tiles)
+# signal stopped_all(tiles)
 var _stopped_count = 0
 
 @export var pictures_row1: Array[SlotTileData] = [
@@ -143,7 +143,7 @@ func _stop() -> void:
     _stopped_count += 1
     stopped.emit()
     if _stopped_count == reels + 1:
-        stopped_all.emit([get_tile(0, 1).data.id, get_tile(1, 1).data.id, get_tile(2, 1).data.id])
+        Globals.slot_stopped.emit([get_tile(0, 1).data.id, get_tile(1, 1).data.id, get_tile(2, 1).data.id])
 
     var questions = []
     if _stopped_count == 1:

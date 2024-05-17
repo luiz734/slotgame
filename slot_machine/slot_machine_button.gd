@@ -9,6 +9,6 @@ func _ready():
         _owner.start()
         disabled = true
     )
-    _owner.stopped_all.connect(func(tiles):
+    Globals.slot_stopped.connect(func(tiles):
         disabled = false
     )

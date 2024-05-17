@@ -11,11 +11,11 @@ func _ready():
     assert(question_prefab, "Missing question_prefab")
     assert(roll_button, "Missing roll_button")
     assert(output, "Missing output")
-    slot.stopped_all.connect(_on_slot_machine_stopped)
+    Globals.slot_stopped.connect(_on_slot_machine_stopped)
     roll_button.pressed.connect(_on_Roll_button_down)
-    slot.stopped_all.connect(func(slots):
-        print(slots)
-        output.text = str(slots)
+    Globals.slot_stopped.connect(func(res):
+        print(res)
+        output.text = str(res)
     )
     
     current_question = create_question()
