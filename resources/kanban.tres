@@ -1,9 +1,0 @@
-[gd_resource type="Resource" script_class="SlotTileData" load_steps=3 format=3 uid="uid://b2w4ncmdg6eif"]
-
-[ext_resource type="Script" path="res://slot_tile/slot_tile_data.gd" id="1_mhmua"]
-[ext_resource type="Texture2D" uid="uid://w4gkm5i10qwx" path="res://sprites/icons/kanban.png" id="2_utkv7"]
-
-[resource]
-script = ExtResource("1_mhmua")
-texture = ExtResource("2_utkv7")
-id = "kanban"

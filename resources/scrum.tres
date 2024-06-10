@@ -1,9 +1,0 @@
-[gd_resource type="Resource" script_class="SlotTileData" load_steps=3 format=3 uid="uid://ccdyr0ixgukql"]
-
-[ext_resource type="Script" path="res://slot_tile/slot_tile_data.gd" id="1_17bch"]
-[ext_resource type="Texture2D" uid="uid://1et13ii4a4tk" path="res://sprites/icons/Scrum.png" id="2_014wd"]
-
-[resource]
-script = ExtResource("1_17bch")
-texture = ExtResource("2_014wd")
-id = "scrum"
