@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="SlotTileData" load_steps=3 format=3 uid="uid://75tbirq1ifkj"]
+
+[ext_resource type="Script" path="res://slot_tile/slot_tile_data.gd" id="1_uluod"]
+[ext_resource type="Texture2D" uid="uid://djukb2ok3bdat" path="res://ui/icons/2x.png" id="2_lymgd"]
+
+[resource]
+script = ExtResource("1_uluod")
+texture = ExtResource("2_lymgd")
+id = "2x"

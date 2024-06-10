@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="QuestionData" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://question/question_data.gd" id="1_2v2m2"]
+
+[resource]
+script = ExtResource("1_2v2m2")
+question = "Qual é uma prática de teste recomendada pelo Extreme Programming?"
+options = ["Testar o software apenas ao final do projeto", "Criar testes automatizados antes de implementar o código", "Delegar todos os testes a uma equipe de controle de qualidade", "Fazer apenas testes manuais"]
+correct = 1

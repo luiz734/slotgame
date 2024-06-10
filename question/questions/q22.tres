@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="QuestionData" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://question/question_data.gd" id="1_k281e"]
+
+[resource]
+script = ExtResource("1_k281e")
+question = "Qual é a ferramenta de Lean que se concentra em organizar o ambiente de trabalho?"
+options = ["6 Sigma", "PDCA", "5S", "Poka-Yoke"]
+correct = 2

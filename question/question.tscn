@@ -220,5 +220,6 @@ theme_override_constants/margin_bottom = 60
 
 [node name="Label" type="Label" parent="ContentViewport/CanvasFront/MarginContainer"]
 layout_mode = 2
-text = "Qual é a função do Scrum Master em um time Scrum?"
+text = "Qual é a função do Scrum Master em um time Scrum? Qual é a função do Scrum Master em um time Scrum?"
 label_settings = SubResource("LabelSettings_xiar2")
+autowrap_mode = 3

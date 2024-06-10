@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="QuestionData" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://question/question_data.gd" id="1_0o2l6"]
+
+[resource]
+script = ExtResource("1_0o2l6")
+question = "O que é \"refactoring\" em XP?"
+options = ["Um método para revisar reuniões", "Uma técnica para melhorar o código sem alterar sua funcionalidade", "Um padrão de design para gestão de projetos", "Uma prática para corrigir código mal escrito"]
+correct = 1

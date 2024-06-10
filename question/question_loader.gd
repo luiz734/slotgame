@@ -32,7 +32,7 @@ func load_text_file(file_path: String) -> Array:
             if new_question.options[index][0] == "*":
                 # Removes the "*"
                 new_question.options[index] = new_question.options[index].substr(1)
-                print(new_question.options[index])
+                print_debug(new_question.options[index])
                 new_question.correct = index
                 break
         var _empty_line = get_line_from_file(file)

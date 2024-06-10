@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://bep2donq4o66s"]
+[gd_scene load_steps=29 format=3 uid="uid://bep2donq4o66s"]
 
 [ext_resource type="PackedScene" uid="uid://di41ccpbftbje" path="res://slot_machine/slot_machine.tscn" id="1_lyo8y"]
 [ext_resource type="Script" path="res://main.gd" id="1_v2djk"]
@@ -7,20 +7,21 @@
 [ext_resource type="Theme" uid="uid://7bhmgldpi7ub" path="res://slot_tile/tile-font.tres" id="3_p6v5f"]
 [ext_resource type="FontFile" uid="uid://bbll0l4dcuwmb" path="res://fonts/Rubik-VariableFont_wght.ttf" id="4_8br3i"]
 [ext_resource type="Texture2D" uid="uid://brwuxbcf2dh03" path="res://ui/question-bg.png" id="4_g51i8"]
+[ext_resource type="Script" path="res://options_group.gd" id="6_3euic"]
 [ext_resource type="PackedScene" uid="uid://dfxfeqlfoquo1" path="res://question/question.tscn" id="6_pv1w7"]
 [ext_resource type="PackedScene" uid="uid://foxe13v4vmuw" path="res://button-answer.tscn" id="7_qywn3"]
 [ext_resource type="Script" path="res://overlay.gd" id="10_acmwv"]
+[ext_resource type="Script" path="res://state_viewer.gd" id="10_hbpu0"]
 [ext_resource type="PackedScene" uid="uid://87tq3ucqyrlf" path="res://ui/progress_timer.tscn" id="10_hytrk"]
 [ext_resource type="PackedScene" uid="uid://ca24x5311o8ac" path="res://boost.tscn" id="12_x4jfx"]
-[ext_resource type="Shader" path="res://grayscale.gdshader" id="13_kqxig"]
-[ext_resource type="Resource" uid="uid://75tbirq1ifkj" path="res://resources/2x.tres" id="13_smnmp"]
-[ext_resource type="Resource" uid="uid://v2ert82vfm2o" path="res://resources/arrow_right.tres" id="14_hrxk8"]
-[ext_resource type="Resource" uid="uid://bucwq7380ivmr" path="res://resources/bomb.tres" id="15_wn3f6"]
-[ext_resource type="Resource" uid="uid://bt4ngddkuigy3" path="res://resources/brain.tres" id="16_283sp"]
-[ext_resource type="Resource" uid="uid://bra6ebemfbqt4" path="res://resources/clock.tres" id="17_qtgtw"]
-[ext_resource type="Resource" uid="uid://d3baihgo2usqd" path="res://resources/double_arrow.tres" id="18_j2edl"]
+[ext_resource type="Shader" path="res://shaders/grayscale.gdshader" id="13_kqxig"]
+[ext_resource type="Resource" uid="uid://75tbirq1ifkj" path="res://ui/resources/2x.tres" id="13_smnmp"]
+[ext_resource type="Resource" uid="uid://v2ert82vfm2o" path="res://ui/resources/arrow_right.tres" id="14_hrxk8"]
+[ext_resource type="Resource" uid="uid://bucwq7380ivmr" path="res://ui/resources/bomb.tres" id="15_wn3f6"]
+[ext_resource type="Resource" uid="uid://bt4ngddkuigy3" path="res://ui/resources/brain.tres" id="16_283sp"]
+[ext_resource type="Resource" uid="uid://bra6ebemfbqt4" path="res://ui/resources/clock.tres" id="17_qtgtw"]
+[ext_resource type="Resource" uid="uid://d3baihgo2usqd" path="res://ui/resources/double_arrow.tres" id="18_j2edl"]
 [ext_resource type="Script" path="res://score_manager.gd" id="20_1vgg7"]
-[ext_resource type="PackedScene" uid="uid://cprko42pycatd" path="res://score_animation.tscn" id="21_edyvr"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_npi8w"]
 resource_local_to_scene = true
@@ -78,7 +79,7 @@ offset_right = 1155.0
 grow_vertical = 2
 texture = ExtResource("4_g51i8")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Background"]
+[node name="Options" type="VBoxContainer" parent="Background"]
 layout_mode = 1
 anchors_preset = 11
 anchor_left = 1.0
@@ -90,17 +91,18 @@ offset_right = -58.0
 offset_bottom = -49.0
 grow_horizontal = 0
 grow_vertical = 2
+script = ExtResource("6_3euic")
 
-[node name="Button" parent="Background/VBoxContainer" instance=ExtResource("7_qywn3")]
+[node name="Option1" parent="Background/Options" instance=ExtResource("7_qywn3")]
 layout_mode = 2
 
-[node name="Button2" parent="Background/VBoxContainer" instance=ExtResource("7_qywn3")]
+[node name="Option2" parent="Background/Options" instance=ExtResource("7_qywn3")]
 layout_mode = 2
 
-[node name="Button3" parent="Background/VBoxContainer" instance=ExtResource("7_qywn3")]
+[node name="Option3" parent="Background/Options" instance=ExtResource("7_qywn3")]
 layout_mode = 2
 
-[node name="Button4" parent="Background/VBoxContainer" instance=ExtResource("7_qywn3")]
+[node name="Option4" parent="Background/Options" instance=ExtResource("7_qywn3")]
 layout_mode = 2
 
 [node name="Roll" type="Button" parent="."]
@@ -112,6 +114,7 @@ theme = ExtResource("3_p6v5f")
 text = "Next"
 
 [node name="output" type="RichTextLabel" parent="."]
+visible = false
 offset_left = 1404.0
 offset_top = 217.0
 offset_right = 1856.0
@@ -120,7 +123,17 @@ theme_override_fonts/normal_font = ExtResource("4_8br3i")
 theme_override_font_sizes/normal_font_size = 20
 text = "none"
 
-[node name="ProgressTimer" parent="." instance=ExtResource("10_hytrk")]
+[node name="state_viewer" type="RichTextLabel" parent="."]
+offset_left = 1404.0
+offset_top = 217.0
+offset_right = 1856.0
+offset_bottom = 323.0
+theme_override_fonts/normal_font = ExtResource("4_8br3i")
+theme_override_font_sizes/normal_font_size = 20
+text = "none"
+script = ExtResource("10_hbpu0")
+
+[node name="AnswerTimer" parent="." instance=ExtResource("10_hytrk")]
 offset_left = 1229.0
 offset_top = 62.0
 offset_right = 1852.0
@@ -138,45 +151,38 @@ alignment = 1
 material = SubResource("ShaderMaterial_npi8w")
 layout_mode = 2
 data = ExtResource("13_smnmp")
-_avaliable_uses = 0
 
-[node name="ArrowRight" parent="BoostGrid" instance=ExtResource("12_x4jfx")]
+[node name="arrow_right" parent="BoostGrid" instance=ExtResource("12_x4jfx")]
 material = SubResource("ShaderMaterial_dmiue")
 layout_mode = 2
 data = ExtResource("14_hrxk8")
-_avaliable_uses = 0
 
-[node name="Bomb" parent="BoostGrid" instance=ExtResource("12_x4jfx")]
+[node name="bomb" parent="BoostGrid" instance=ExtResource("12_x4jfx")]
 material = SubResource("ShaderMaterial_bpasx")
 layout_mode = 2
 data = ExtResource("15_wn3f6")
-_avaliable_uses = 0
 
-[node name="Brain" parent="BoostGrid" instance=ExtResource("12_x4jfx")]
+[node name="brain" parent="BoostGrid" instance=ExtResource("12_x4jfx")]
 material = SubResource("ShaderMaterial_5nw3j")
 layout_mode = 2
 data = ExtResource("16_283sp")
-_avaliable_uses = 0
 
-[node name="Clock" parent="BoostGrid" instance=ExtResource("12_x4jfx")]
+[node name="clock" parent="BoostGrid" instance=ExtResource("12_x4jfx")]
 material = SubResource("ShaderMaterial_csiej")
 layout_mode = 2
 data = ExtResource("17_qtgtw")
-_avaliable_uses = 0
 
-[node name="DoubleArrow" parent="BoostGrid" instance=ExtResource("12_x4jfx")]
+[node name="double_arrow" parent="BoostGrid" instance=ExtResource("12_x4jfx")]
 material = SubResource("ShaderMaterial_qon0g")
 layout_mode = 2
 data = ExtResource("18_j2edl")
-_avaliable_uses = 0
 
 [node name="-------- m a n a g e r -----------" type="Node" parent="."]
 
 [node name="ScoreManager" type="Node2D" parent="." node_paths=PackedStringArray("boost_buttons_parent")]
 z_index = 40
 script = ExtResource("20_1vgg7")
-score_animation_prefab = ExtResource("21_edyvr")
-boost_buttons_parent = NodePath("../BoostGrid")
+boost_buttons_parent = NodePath("../Background/Options")
 
 [node name="-------- o v e r l a y -----------" type="Node" parent="."]
 
@@ -198,8 +204,5 @@ _overlay_color = Color(0, 0, 0, 0.329412)
 z_index = 20
 position = Vector2(897, -636)
 scale = Vector2(0.8, 0.8)
-pictures_row1 = Array[Resource("res://slot_tile/slot_tile_data.gd")]([ExtResource("15_wn3f6")])
-pictures_row2 = Array[Resource("res://slot_tile/slot_tile_data.gd")]([ExtResource("15_wn3f6")])
-pictures_row3 = Array[Resource("res://slot_tile/slot_tile_data.gd")]([ExtResource("15_wn3f6")])
 reels = 3
 speed = 3.0

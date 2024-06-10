@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="QuestionData" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://question/question_data.gd" id="1_kpjui"]
+
+[resource]
+script = ExtResource("1_kpjui")
+question = "Qual é o termo usado para descrever a redução de ciclos em Kanban?"
+options = ["Muda", "Kaizen", "Chaku", "Poka-Yoke"]
+correct = 1

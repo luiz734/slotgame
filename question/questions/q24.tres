@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="QuestionData" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://question/question_data.gd" id="1_6we4c"]
+
+[resource]
+script = ExtResource("1_6we4c")
+question = "Lean teve origem em qual indústria?"
+options = ["Tecnologia", "Automobilística", "Alimentícia", "Moda"]
+correct = 1

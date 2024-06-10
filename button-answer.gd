@@ -1,4 +1,5 @@
 extends NinePatchRect
+class_name QuestionOption
 
 # todo: use custom class for data
 signal clicked(data: Dictionary)
@@ -9,9 +10,15 @@ var _scale_normal: float = 1.0
 var _scale_hover: float = 1.05
 
 @onready var hitbox = $Hitbox
+@onready var label = $MarginContainer/Label
+
+var is_correct: bool = false:
+    set(value):
+        is_correct = value 
 
 func _ready():
     assert(hitbox, "missing hitbox reference")
+    assert(label, "missing label reference")
 
     mouse_entered.connect(func():
         _is_hovering = true
@@ -34,7 +41,13 @@ func _ready():
 
 func _process(delta):
     if _is_hovering and Input.is_action_just_pressed("click"):
-        clicked.emit({})
+        clicked.emit({
+            "correct": is_correct
+        })
 
 func _on_mouse_entered():
     pass # Replace with function body.
+
+func set_label(v: String):
+    label.text = v
+    

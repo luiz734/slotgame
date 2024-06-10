@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="QuestionData" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://question/question_data.gd" id="1_330ui"]
+
+[resource]
+script = ExtResource("1_330ui")
+question = "Qual é a função do Scrum Master em um time Scrum?"
+options = ["Delegar tarefas ao time", "Orientar o time e ajudar a remover impedimentos", "Desenvolver o software", "Priorizar o backlog do produto"]
+correct = 1

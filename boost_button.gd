@@ -52,7 +52,12 @@ func _ready():
             scale = Vector2(v, v)
             , _scale_hover, _scale_normal, _hover_duration_sec)
     )
-
+    
+    GameState.state_changed.connect(func():
+        for boost_id in GameState.avaliable_boosts:
+            if boost_id == data.id:
+                _avaliable_uses = GameState.avaliable_boosts[boost_id]   
+    )
     Globals.boost_sprite_done.connect(_on_boost_sprite_done)
 
 func _on_boost_sprite_done(id):

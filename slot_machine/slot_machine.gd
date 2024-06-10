@@ -9,26 +9,30 @@ signal stopped
 var _stopped_count = 0
 
 @export var pictures_row1: Array[SlotTileData] = [
-    preload("res://resources/xp.tres"),
-    preload("res://resources/kanban.tres"),
-    preload("res://resources/lean.tres"),
-    preload("res://resources/manifesto_agil.tres"),
-    preload("res://resources/scrum.tres"),
+    preload("res://ui/resources/bomb.tres"),
+    preload("res://ui/resources/arrow_right.tres"),
+    preload("res://ui/resources/2x.tres"),
+    preload("res://ui/resources/brain.tres"),
+    preload("res://ui/resources/clock.tres"),
+    preload("res://ui/resources/double_arrow.tres"),
 ]
 
 @export var pictures_row2: Array[SlotTileData] = [
-    preload("res://resources/facil.tres"),
-    preload("res://resources/medio.tres"),
-    preload("res://resources/dificil.tres"),
+    preload("res://ui/resources/bomb.tres"),
+    preload("res://ui/resources/arrow_right.tres"),
+    preload("res://ui/resources/2x.tres"),
+    preload("res://ui/resources/brain.tres"),
+    preload("res://ui/resources/clock.tres"),
+    preload("res://ui/resources/double_arrow.tres"),
 ]
 
 @export var pictures_row3: Array[SlotTileData] = [
-    preload("res://resources/bomb.tres"),
-    preload("res://resources/arrow_right.tres"),
-    preload("res://resources/2x.tres"),
-    preload("res://resources/brain.tres"),
-    preload("res://resources/clock.tres"),
-    preload("res://resources/double_arrow.tres"),
+    preload("res://ui/resources/bomb.tres"),
+    preload("res://ui/resources/arrow_right.tres"),
+    preload("res://ui/resources/2x.tres"),
+    preload("res://ui/resources/brain.tres"),
+    preload("res://ui/resources/clock.tres"),
+    preload("res://ui/resources/double_arrow.tres"),
 ]
 
 @export_range(1, 20) var reels: int = 5
@@ -73,12 +77,9 @@ var runs_stopped := 0
 var total_runs: int
 var spacement := Vector2(0, 0)
 
-var questions_reader = preload("res://question/question_data.gd")
-var questions_matrix = []
+
 
 func _ready():
-    questions_matrix = questions_reader.new().load_text_file("res://question/question.txt")
-    
     pivot.position.x -= tile_size.x
     # Initializes grid of tiles
     for col in reels:
@@ -145,16 +146,16 @@ func _stop() -> void:
     if _stopped_count == reels + 1:
         Globals.slot_stopped.emit([get_tile(0, 1).data.id, get_tile(1, 1).data.id, get_tile(2, 1).data.id])
 
-    var questions = []
-    if _stopped_count == 1:
-        for i in questions_matrix:
-            if i[0] == get_tile(0, 1).data.id and i[1] == get_tile(1, 1).data.id:       
-                var values = []
-                for a in i:
-                    values.append(a.strip_edges().replace("[^a-zA-Z0-9\\s]", "").replace("\\", ""))
-                questions.append(values)
-        if questions.size() > 0:
-            print(questions[randi_range(0, questions.size() - 1)])
+    #var questions = []
+    #if _stopped_count == 1:
+        #for i in questions_matrix:
+            #if i[0] == get_tile(0, 1).data.id and i[1] == get_tile(1, 1).data.id:       
+                #var values = []
+                #for a in i:
+                    #values.append(a.strip_edges().replace("[^a-zA-Z0-9\\s]", "").replace("\\", ""))
+                #questions.append(values)
+        #if questions.size() > 0:
+            #print(questions[randi_range(0, questions.size() - 1)])
 
 # Starts moving all tiles of the given reel
 func _spin_reel(reel: int) -> void:
@@ -210,7 +211,6 @@ func _on_tile_moved(tile: SlotTile) -> void:
 # We use ceil, so that both 1/7, as well as 7/7 return that the reel ran 1 time
 func current_runs(reel := 0) -> int:
     return int(ceil(float(tiles_moved_per_reel[reel]) / rows))
-
 
 func _randomTexture(row: int):
     assert(row >= 0 and row <= 2, "Invalid row")

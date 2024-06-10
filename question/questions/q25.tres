@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="QuestionData" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://question/question_data.gd" id="1_ty1c0"]
+
+[resource]
+script = ExtResource("1_ty1c0")
+question = "O que é um quadro Kanban?"
+options = ["Um quadro para desenhos artísticos", "Uma técnica para acompanhar as tarefas de uma equipe", "Um quadro de horários de funcionários", "Um quadro para registrar custos de um projeto"]
+correct = 1

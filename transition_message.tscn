@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://p1v10dwv7l2a"]
+
+[ext_resource type="FontFile" uid="uid://bbll0l4dcuwmb" path="res://fonts/Rubik-VariableFont_wght.ttf" id="1_hk6f4"]
+
+[node name="TransitionMessage" type="Label"]
+theme_override_fonts/font = ExtResource("1_hk6f4")
+theme_override_font_sizes/font_size = 120
+text = "Message here"

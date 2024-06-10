@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="QuestionData" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://question/question_data.gd" id="1_cw5gg"]
+
+[resource]
+script = ExtResource("1_cw5gg")
+question = "O que é um \"burndown chart\" em Scrum?"
+options = ["Um gráfico que mostra a eficiência da equipe em desenvolver software", "Um gráfico que mostra a quantidade de trabalho restante ao longo do tempo", "Um gráfico que mostra a qualidade do código produzido", "Um gráfico que mostra a quantidade de tarefas finalizadas em cada sprint"]
+correct = 1

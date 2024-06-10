@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="QuestionData" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://question/question_data.gd" id="1_yadnv"]
+
+[resource]
+script = ExtResource("1_yadnv")
+question = "O que é o Product Backlog em Scrum?"
+options = ["Um resumo dos requisitos que o cliente deseja", "Um documento que lista tarefas já concluídas", "Uma lista ordenada de itens de trabalho a serem desenvolvidos", "Um relatório sobre o desempenho da equipe"]
+correct = 2

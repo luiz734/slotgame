@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="QuestionData" load_steps=2 format=3 uid="uid://dif5b75ip417b"]
+
+[ext_resource type="Script" path="res://question/question_data.gd" id="1_pap6o"]
+
+[resource]
+script = ExtResource("1_pap6o")
+question = "O Manifesto Ágil valoriza:"
+options = ["Processos e ferramentas sobre indivíduos e interações", "Documentação extensiva sobre software em funcionamento", "Colaboração com o cliente sobre contrato com o cliente", "Seguir um plano sobre responder a mudanças"]
+correct = 2

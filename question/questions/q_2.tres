@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="QuestionData" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://question/question_data.gd" id="1_c5shl"]
+
+[resource]
+script = ExtResource("1_c5shl")
+question = "Em que ano o Manifesto Ágil foi criado?"
+options = ["1995", "2001", "2015", "2020"]
+correct = 1

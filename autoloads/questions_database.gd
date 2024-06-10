@@ -5,9 +5,9 @@ extends Node
 var last_question: QuestionData = null
 
 #  -------------- W A R N I N G   --------------
-# Uncomenting the section bellow will overwrite all the content of question/question_loader
-var questions_reader = preload("res://question/question_loader.gd")
-@onready var questions_matrix = questions_reader.new().load_text_file("res://question/question.txt")
+# Uncomenting the section bellow will overwrite all the content of question/questions
+#var questions_reader = preload("res://question/question_loader.gd")
+#@onready var questions_matrix = questions_reader.new().load_text_file("res://question/question.txt")
 #  ---------------------------------------------
 
 func _ready():
@@ -21,3 +21,4 @@ func get_last_question() -> QuestionData:
  
 func shuffle_question():
     last_question = questions.pick_random()
+    GameState.current_question = last_question

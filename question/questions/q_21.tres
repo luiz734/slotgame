@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="QuestionData" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://question/question_data.gd" id="1_jckrm"]
+
+[resource]
+script = ExtResource("1_jckrm")
+question = "O que significa \"muda\" em Lean?"
+options = ["Fluxo contínuo", "Colaboração entre equipes", "Desperdício", "Planejamento estratégico"]
+correct = 2

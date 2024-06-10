@@ -1,20 +1,19 @@
 extends Node2D
 
-@export var score_animation_prefab: PackedScene
 @export var boost_buttons_parent: Control
 var _boost_buttons: Array[BoostButton]
 
 var _boosts: Array[SlotTileData] = [
-    preload("res://resources/bomb.tres"),
-    preload("res://resources/arrow_right.tres"),
-    preload("res://resources/2x.tres"),
-    preload("res://resources/brain.tres"),
-    preload("res://resources/clock.tres"),
-    preload("res://resources/double_arrow.tres"),
+    preload("res://ui/resources/bomb.tres"),
+    preload("res://ui/resources/arrow_right.tres"),
+    preload("res://ui/resources/2x.tres"),
+    preload("res://ui/resources/brain.tres"),
+    preload("res://ui/resources/clock.tres"),
+    preload("res://ui/resources/double_arrow.tres"),
 ]
 
 func _ready():
-    assert(score_animation_prefab, "missing score animation prefab")
+    assert(boost_buttons_parent, "missing boost_buttons_parent reference")
     for c in boost_buttons_parent.get_children():
         _boost_buttons.push_back(c as BoostButton)
     Globals.slot_stopped.connect(_on_slot_stopped)
@@ -22,11 +21,9 @@ func _ready():
 func _on_slot_stopped(res):
     if _has_scored(res):
         var id = res[0]
-        print("player has scored")
-        var score_animation = score_animation_prefab.instantiate()
-        score_animation.data = _get_data(id)
-        score_animation.move_to = _get_position(id)
-        add_child(score_animation)
+        var current_boosts = GameState.avaliable_boosts
+        current_boosts[id] += 1
+        GameState.avaliable_boosts = current_boosts
 
 func _get_position(id) -> Vector2:
     for b in _boost_buttons:
@@ -42,6 +39,7 @@ func _get_data(id) -> SlotTileData:
     return null
     
 func _has_scored(res: Array) -> bool:
+    return true
     var first = res[0]
     return res.all(func(x): return x == first)
 

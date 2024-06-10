@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://ca24x5311o8ac"]
 
-[ext_resource type="Shader" path="res://grayscale.gdshader" id="1_sg4by"]
+[ext_resource type="Shader" path="res://shaders/grayscale.gdshader" id="1_sg4by"]
 [ext_resource type="Script" path="res://boost_button.gd" id="1_x26c8"]
 [ext_resource type="Texture2D" uid="uid://c0cov43ivsav" path="res://icon.svg" id="2_3c75i"]
 
@@ -23,4 +23,3 @@ texture_normal = ExtResource("2_3c75i")
 ignore_texture_size = true
 stretch_mode = 0
 script = ExtResource("1_x26c8")
-_avaliable_uses = null
