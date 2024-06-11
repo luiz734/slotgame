@@ -10,6 +10,8 @@ var current_question: Question = null
 @onready var options_container: OptionsGroup = get_node("Background/Options")
 @onready var answer_timer: AnswerTimer = $AnswerTimer
 
+@onready var transition = %Transition
+
 func on_correct_answer():
     GameState.correct_answers += 1
     go_to_next_question()
@@ -33,6 +35,10 @@ func _ready():
     assert(output, "Missing output")
     assert(options_container, "Missing options_container reference")
     assert(answer_timer, "Missing answer_timer reference")
+    assert(transition, "Missing transition reference")
+    
+    transition.start_reversed()
+    await transition.finished
     
     answer_timer.timeout.connect(on_answer_timeout)
    

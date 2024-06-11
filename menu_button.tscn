@@ -1,0 +1,71 @@
+[gd_scene load_steps=4 format=3 uid="uid://qggitrpmtmaf"]
+
+[ext_resource type="Texture2D" uid="uid://d4curkghjrh8y" path="res://ui/button.png" id="1_n7vbl"]
+[ext_resource type="Script" path="res://menu_button.gd" id="2_d3p7y"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_5s3pw"]
+font_size = 60
+outline_size = 10
+
+[node name="Button" type="NinePatchRect"]
+self_modulate = Color(0.109804, 0.34902, 0.478431, 1)
+custom_minimum_size = Vector2(647, 178)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -323.5
+offset_top = -89.0
+offset_right = 323.5
+offset_bottom = 89.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(339.5, 90)
+size_flags_horizontal = 4
+size_flags_vertical = 4
+mouse_filter = 0
+texture = ExtResource("1_n7vbl")
+patch_margin_left = 60
+patch_margin_top = 60
+patch_margin_right = 60
+patch_margin_bottom = 60
+script = ExtResource("2_d3p7y")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 40
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 40
+theme_override_constants/margin_bottom = 20
+
+[node name="Label" type="Label" parent="MarginContainer"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+mouse_filter = 1
+text = "OPTION"
+label_settings = SubResource("LabelSettings_5s3pw")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="Hitbox" type="ColorRect" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 37.0
+offset_top = 37.0
+offset_right = -37.0
+offset_bottom = -37.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]

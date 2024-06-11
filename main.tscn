@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://bep2donq4o66s"]
+[gd_scene load_steps=30 format=3 uid="uid://bep2donq4o66s"]
 
 [ext_resource type="PackedScene" uid="uid://di41ccpbftbje" path="res://slot_machine/slot_machine.tscn" id="1_lyo8y"]
 [ext_resource type="Script" path="res://main.gd" id="1_v2djk"]
@@ -22,6 +22,7 @@
 [ext_resource type="Resource" uid="uid://bra6ebemfbqt4" path="res://ui/resources/clock.tres" id="17_qtgtw"]
 [ext_resource type="Resource" uid="uid://d3baihgo2usqd" path="res://ui/resources/double_arrow.tres" id="18_j2edl"]
 [ext_resource type="Script" path="res://score_manager.gd" id="20_1vgg7"]
+[ext_resource type="PackedScene" uid="uid://qcbefdqmwawm" path="res://transition.tscn" id="23_chrb2"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_npi8w"]
 resource_local_to_scene = true
@@ -206,3 +207,8 @@ position = Vector2(897, -636)
 scale = Vector2(0.8, 0.8)
 reels = 3
 speed = 3.0
+
+[node name="Transition" parent="." instance=ExtResource("23_chrb2")]
+unique_name_in_owner = true
+offset_right = 1920.0
+offset_bottom = 1080.0
