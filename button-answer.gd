@@ -9,8 +9,12 @@ var _hover_duration_sec: float = 0.2
 var _scale_normal: float = 1.0
 var _scale_hover: float = 1.05
 
+const WRONG_COLOR: Color = Color("#ff6161")
+const CORRECT_COLOR: Color = Color("#6eff61")
+
 @onready var hitbox = $Hitbox
 @onready var label = $MarginContainer/Label
+@onready var animation_player = $AnimationPlayer
 
 var is_correct: bool = false:
     set(value):
@@ -19,6 +23,7 @@ var is_correct: bool = false:
 func _ready():
     assert(hitbox, "missing hitbox reference")
     assert(label, "missing label reference")
+    assert(animation_player, "Missing animation_player reference")
 
     mouse_entered.connect(func():
         _is_hovering = true
@@ -41,8 +46,10 @@ func _ready():
 
 func _process(delta):
     if _is_hovering and Input.is_action_just_pressed("click"):
+        #if is_correct:
         clicked.emit({
-            "correct": is_correct
+            "correct": is_correct,
+            "button": self
         })
 
 func _on_mouse_entered():
@@ -50,4 +57,19 @@ func _on_mouse_entered():
 
 func set_label(v: String):
     label.text = v
+
+func reset_modulate():
+    pass
+
+func play_correct_answer_animation():
+    animation_player.play("correct_answer")
+    await animation_player.animation_finished
+    modulate = Color.WHITE
+    
+func play_wrong_answer_animation():
+    animation_player.play("wrong_answer")
+    await animation_player.animation_finished
+    modulate = Color.WHITE
+    
+    
     

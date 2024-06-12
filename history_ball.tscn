@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://bjkxug5ioq27c"]
+
+[ext_resource type="Texture2D" uid="uid://ce7auuhjlpddm" path="res://ui/ball-empty.png" id="1_0nfke"]
+[ext_resource type="Script" path="res://history_ball.gd" id="2_8cbnf"]
+
+[node name="HistoryBall" type="TextureRect"]
+custom_minimum_size = Vector2(60, 60)
+expand_mode = 3
+stretch_mode = 3
+script = ExtResource("2_8cbnf")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(30, 30)
+texture = ExtResource("1_0nfke")

@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://foxe13v4vmuw"]
+[gd_scene load_steps=8 format=3 uid="uid://foxe13v4vmuw"]
 
 [ext_resource type="Texture2D" uid="uid://d4curkghjrh8y" path="res://ui/button.png" id="1_ufsfw"]
 [ext_resource type="Script" path="res://button-answer.gd" id="2_gef8q"]
@@ -8,6 +8,60 @@ font_size = 32
 font_color = Color(0.392157, 0.392157, 0.392157, 1)
 outline_size = 3
 outline_color = Color(0.392157, 0.392157, 0.392157, 1)
+
+[sub_resource type="Animation" id="Animation_pxqy1"]
+resource_name = "correct_answer"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [Color(1, 1, 1, 1), Color(0.431667, 1, 0.38, 1), Color(1, 1, 1, 1), Color(0.431373, 1, 0.380392, 1), Color(1, 1, 1, 1), Color(0.431373, 1, 0.380392, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_tprfd"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_i3dlg"]
+resource_name = "wrong_answer"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [Color(1, 1, 1, 1), Color(1, 0.380392, 0.380392, 1), Color(1, 1, 1, 1), Color(1, 0.380392, 0.380392, 1), Color(1, 1, 1, 1), Color(1, 0.380392, 0.380392, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_40rft"]
+_data = {
+"RESET": SubResource("Animation_tprfd"),
+"correct_answer": SubResource("Animation_pxqy1"),
+"wrong_answer": SubResource("Animation_i3dlg")
+}
 
 [node name="Button" type="NinePatchRect"]
 custom_minimum_size = Vector2(647, 178)
@@ -56,5 +110,10 @@ offset_bottom = -37.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_40rft")
+}
 
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]

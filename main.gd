@@ -11,14 +11,23 @@ var current_question: Question = null
 @onready var answer_timer: AnswerTimer = $AnswerTimer
 
 @onready var transition = %Transition
+@onready var history = %History
 
-func on_correct_answer():
+func on_correct_answer(button: QuestionOption):
+    answer_timer.stop()
+    await button.play_correct_answer_animation()
+    await history.play_next_ball(true)
+    
     GameState.correct_answers += 1
     go_to_next_question()
     if GameState.check_for_end():
         get_tree().quit()
 
-func on_wrong_answer():
+func on_wrong_answer(button: QuestionOption):
+    answer_timer.stop()
+    await button.play_wrong_answer_animation()
+    await history.play_next_ball(false)
+
     GameState.wrong_answers += 1
     go_to_next_question()
     if GameState.check_for_end():
@@ -69,7 +78,7 @@ func _ready():
 
 func create_question() -> Question:
     var question = question_prefab.instantiate() as Question
-    question.position += Vector2(0, 0)
+    question.position += Vector2(0, 100)
     return question
 
 func go_to_next_question():

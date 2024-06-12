@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://bep2donq4o66s"]
+[gd_scene load_steps=31 format=3 uid="uid://bep2donq4o66s"]
 
 [ext_resource type="PackedScene" uid="uid://di41ccpbftbje" path="res://slot_machine/slot_machine.tscn" id="1_lyo8y"]
 [ext_resource type="Script" path="res://main.gd" id="1_v2djk"]
@@ -10,6 +10,7 @@
 [ext_resource type="Script" path="res://options_group.gd" id="6_3euic"]
 [ext_resource type="PackedScene" uid="uid://dfxfeqlfoquo1" path="res://question/question.tscn" id="6_pv1w7"]
 [ext_resource type="PackedScene" uid="uid://foxe13v4vmuw" path="res://button-answer.tscn" id="7_qywn3"]
+[ext_resource type="PackedScene" uid="uid://bg8p6n3nhktq5" path="res://histoty.tscn" id="8_t7aru"]
 [ext_resource type="Script" path="res://overlay.gd" id="10_acmwv"]
 [ext_resource type="Script" path="res://state_viewer.gd" id="10_hbpu0"]
 [ext_resource type="PackedScene" uid="uid://87tq3ucqyrlf" path="res://ui/progress_timer.tscn" id="10_hytrk"]
@@ -106,6 +107,9 @@ layout_mode = 2
 [node name="Option4" parent="Background/Options" instance=ExtResource("7_qywn3")]
 layout_mode = 2
 
+[node name="History" parent="." instance=ExtResource("8_t7aru")]
+unique_name_in_owner = true
+
 [node name="Roll" type="Button" parent="."]
 offset_left = 1106.0
 offset_top = 1022.0
@@ -142,9 +146,9 @@ offset_bottom = 112.0
 
 [node name="BoostGrid" type="HBoxContainer" parent="."]
 offset_left = 35.0
-offset_top = 836.0
+offset_top = 884.0
 offset_right = 1113.0
-offset_bottom = 1047.0
+offset_bottom = 1095.0
 theme_override_constants/separation = 20
 alignment = 1
 

@@ -4,8 +4,8 @@ class_name OptionsGroup
 @onready var _visible_position: Vector2 = position
 @onready var _hidden_position: Vector2 = position + Vector2(800.0, 0.0)
 
-signal correct_answer
-signal wrong_answer
+signal correct_answer(button)
+signal wrong_answer(button)
 
 func change_options_entries(options_str, correct_index):
     var options = get_children()
@@ -19,9 +19,9 @@ func _ready():
     for option in get_children():
         option.clicked.connect(func(data: Dictionary):
             if data["correct"]:
-                correct_answer.emit()
+                correct_answer.emit(data["button"])
             else:
-                wrong_answer.emit()
+                wrong_answer.emit(data["button"])
         )
 
 func play_appear_animation():

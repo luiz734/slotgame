@@ -1,0 +1,45 @@
+[gd_scene load_steps=3 format=3 uid="uid://bg8p6n3nhktq5"]
+
+[ext_resource type="Script" path="res://history.gd" id="1_35uxe"]
+[ext_resource type="PackedScene" uid="uid://bjkxug5ioq27c" path="res://history_ball.tscn" id="2_jv3oi"]
+
+[node name="History" type="HBoxContainer"]
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = 50.0
+offset_top = 25.0
+offset_right = 1128.0
+offset_bottom = 125.0
+grow_horizontal = 2
+theme_override_constants/separation = 50
+script = ExtResource("1_35uxe")
+
+[node name="HistoryBall" parent="." instance=ExtResource("2_jv3oi")]
+layout_mode = 2
+
+[node name="HistoryBall2" parent="." instance=ExtResource("2_jv3oi")]
+layout_mode = 2
+
+[node name="HistoryBall3" parent="." instance=ExtResource("2_jv3oi")]
+layout_mode = 2
+
+[node name="HistoryBall4" parent="." instance=ExtResource("2_jv3oi")]
+layout_mode = 2
+
+[node name="HistoryBall5" parent="." instance=ExtResource("2_jv3oi")]
+layout_mode = 2
+
+[node name="HistoryBall6" parent="." instance=ExtResource("2_jv3oi")]
+layout_mode = 2
+
+[node name="HistoryBall7" parent="." instance=ExtResource("2_jv3oi")]
+layout_mode = 2
+
+[node name="HistoryBall8" parent="." instance=ExtResource("2_jv3oi")]
+layout_mode = 2
+
+[node name="HistoryBall9" parent="." instance=ExtResource("2_jv3oi")]
+layout_mode = 2
+
+[node name="HistoryBall10" parent="." instance=ExtResource("2_jv3oi")]
+layout_mode = 2
