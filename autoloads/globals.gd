@@ -2,8 +2,10 @@ extends Node
 
 signal slot_start
 signal slot_stopped(res)
+signal slot_scored
 
 signal boost_sprite_done(id)
+
 
 signal overlay_on
 signal overlay_off

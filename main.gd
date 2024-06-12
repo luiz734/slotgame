@@ -38,6 +38,7 @@ func on_answer_timeout():
     go_to_next_question()
 
 func _ready():
+  
     assert(question_prefab, "Missing question_prefab")
     assert(roll_button, "Missing roll_button")
     assert(output, "Missing output")
@@ -107,3 +108,4 @@ func go_to_next_question():
 
 func _on_slot_machine_stopped(slots):
     print("foo")
+    #pass

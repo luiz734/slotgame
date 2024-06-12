@@ -24,6 +24,7 @@ func _on_slot_stopped(res):
         var current_boosts = GameState.avaliable_boosts
         current_boosts[id] += 1
         GameState.avaliable_boosts = current_boosts
+        Globals.slot_scored.emit()
 
 func _get_position(id) -> Vector2:
     for b in _boost_buttons:
@@ -39,7 +40,6 @@ func _get_data(id) -> SlotTileData:
     return null
     
 func _has_scored(res: Array) -> bool:
-    return true
     var first = res[0]
     return res.all(func(x): return x == first)
 

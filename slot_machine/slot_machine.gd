@@ -8,6 +8,8 @@ signal stopped
 # signal stopped_all(tiles)
 var _stopped_count = 0
 
+var weights = [0.16, 0.16, 0.16, 0.16, 0.20, 0.16]
+
 @export var pictures_row1: Array[SlotTileData] = [
     preload("res://ui/resources/bomb.tres"),
     preload("res://ui/resources/arrow_right.tres"),
@@ -77,9 +79,24 @@ var runs_stopped := 0
 var total_runs: int
 var spacement := Vector2(0, 0)
 
+var _random: UtilRandom
 
+func _init():
+    _random = UtilRandom.new()
+    _random.weights = [0.16, 0.16, 0.16, 0.16, 0.16, 0.16]
+    _random.base_weights = [0.16, 0.16, 0.16, 0.16, 0.16, 0.16]
+    _random.adjust_weights()
+    #_random.weights = [0.95, 0.1, 0.1, 0.1, 0.1, 0.1]
 
-func _ready():
+func _ready():    
+    Globals.slot_stopped.connect(func(x):
+        _random.adjust_weights()
+        print(_random.weights)
+    )
+    Globals.slot_scored.connect(func():
+        _random.reset_weights()
+    )
+    
     pivot.position.x -= tile_size.x
     # Initializes grid of tiles
     for col in reels:
@@ -215,11 +232,14 @@ func current_runs(reel := 0) -> int:
 func _randomTexture(row: int):
     assert(row >= 0 and row <= 2, "Invalid row")
     if row == 0:
-        return pictures_row1[randi() % pictures_row1.size()]
+        #return pictures_row1[randi() % pictures_row1.size()]
+        return _random.pick_random(pictures_row1)
     elif row == 1:
-        return pictures_row2[randi() % pictures_row2.size()]
+        #return pictures_row2[randi() % pictures_row2.size()]
+        return _random.pick_random(pictures_row2)
     elif row == 2:
-        return pictures_row3[randi() % pictures_row3.size()]
+        #return pictures_row3[randi() % pictures_row3.size()]
+        return _random.pick_random(pictures_row3)
 
 
 func _get_result() -> void:
