@@ -23,6 +23,8 @@ func _ready():
     assert(play_button, "Missing play_button reference")
     assert(scores_button, "Missing scores_button reference")
     assert(quit_button, "Missing quit_button reference")
+    assert(transition, "Missing transition reference")
     play_button.clicked.connect(on_play_clicked)
     scores_button.clicked.connect(on_scores_pressed)
     quit_button.clicked.connect(on_quit_pressed)
+    transition.start_reversed()

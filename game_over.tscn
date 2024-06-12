@@ -1,0 +1,132 @@
+[gd_scene load_steps=10 format=3 uid="uid://bq2nctfqvi80r"]
+
+[ext_resource type="Script" path="res://game_over.gd" id="1_kecj6"]
+[ext_resource type="Theme" uid="uid://dk011qcxfrk17" path="res://ui/ui_theme.tres" id="2_gb0m7"]
+[ext_resource type="Texture2D" uid="uid://cmjn8rf5i0oi4" path="res://ui/background.png" id="3_j5l71"]
+[ext_resource type="Shader" path="res://vignetting.gdshader" id="4_h63ci"]
+[ext_resource type="FontFile" uid="uid://bbll0l4dcuwmb" path="res://fonts/Rubik-VariableFont_wght.ttf" id="5_6fnq0"]
+[ext_resource type="PackedScene" uid="uid://qggitrpmtmaf" path="res://menu_button.tscn" id="6_pwdac"]
+[ext_resource type="PackedScene" uid="uid://qcbefdqmwawm" path="res://transition.tscn" id="7_nr0nx"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_1rdob"]
+shader = ExtResource("4_h63ci")
+shader_parameter/vignette_intensity = 0.4
+shader_parameter/vignette_opacity = 0.427
+shader_parameter/vignette_rgb = Color(0, 0.352941, 0.439216, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_1wase"]
+font = ExtResource("5_6fnq0")
+font_size = 100
+font_color = Color(0.941176, 0.941176, 0.941176, 1)
+outline_size = 10
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_kecj6")
+
+[node name="Background" type="TextureRect" parent="."]
+self_modulate = Color(0.45098, 0.45098, 0.45098, 1)
+custom_minimum_size = Vector2(1920, 1080)
+layout_mode = 0
+offset_right = 1920.0
+offset_bottom = 1080.0
+theme = ExtResource("2_gb0m7")
+texture = ExtResource("3_j5l71")
+
+[node name="VignettingOverlay" type="ColorRect" parent="Background"]
+material = SubResource("ShaderMaterial_1rdob")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Options" type="VBoxContainer" parent="Background"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -323.5
+offset_top = -271.5
+offset_right = 323.5
+offset_bottom = 271.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Control" type="Control" parent="Background/Options"]
+custom_minimum_size = Vector2(0, 200)
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Label" type="Label" parent="Background/Options/Control"]
+self_modulate = Color(0.909804, 0.909804, 0.909804, 1)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -329.0
+offset_top = -59.5
+offset_right = 329.0
+offset_bottom = 59.5
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(1634, 505.5)
+text = "GAME OVER"
+label_settings = SubResource("LabelSettings_1wase")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Control2" type="Control" parent="Background/Options"]
+custom_minimum_size = Vector2(0, 400)
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="PercentageLabel" type="Label" parent="Background/Options/Control2"]
+unique_name_in_owner = true
+self_modulate = Color(0.909804, 0.909804, 0.909804, 1)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -329.0
+offset_top = -59.5
+offset_right = 329.0
+offset_bottom = 59.5
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(1634, 505.5)
+text = "90%"
+label_settings = SubResource("LabelSettings_1wase")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Menu" parent="Background/Options" instance=ExtResource("6_pwdac")]
+layout_mode = 2
+label_text = "Menu"
+
+[node name="Quit" parent="Background/Options" instance=ExtResource("6_pwdac")]
+self_modulate = Color(0.6, 0.231373, 0.137255, 1)
+layout_mode = 2
+label_text = "Quit"
+
+[node name="Transition" parent="." instance=ExtResource("7_nr0nx")]
+layout_mode = 0
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_right = 1920.0
+offset_bottom = 1080.0
+grow_horizontal = 1
+grow_vertical = 1

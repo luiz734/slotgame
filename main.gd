@@ -23,7 +23,8 @@ func on_correct_answer(button: QuestionOption):
     GameState.correct_answers += 1
     go_to_next_question()
     if GameState.check_for_end():
-        get_tree().quit()
+        var gameover_prefab = load("res://game_over.tscn")
+        get_tree().change_scene_to_packed(gameover_prefab)
 
 func on_wrong_answer(button: QuestionOption):
     answer_timer.stop()
@@ -33,20 +34,22 @@ func on_wrong_answer(button: QuestionOption):
     GameState.wrong_answers += 1
     go_to_next_question()
     if GameState.check_for_end():
-        get_tree().quit()
+        var gameover_prefab = load("res://game_over.tscn")
+        get_tree().change_scene_to_packed(gameover_prefab)
 
 func on_answer_timeout():
     GameState.wrong_answers += 1
     go_to_next_question()
 
-func _ready():
-  
+func _ready():    
     assert(question_prefab, "Missing question_prefab")
     assert(roll_button, "Missing roll_button")
     assert(output, "Missing output")
     assert(options_container, "Missing options_container reference")
     assert(answer_timer, "Missing answer_timer reference")
     assert(transition, "Missing transition reference")
+    
+    GameState.reset_state()
     
     transition.start_reversed()
     await transition.finished
