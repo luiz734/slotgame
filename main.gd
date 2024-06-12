@@ -51,7 +51,9 @@ func _ready():
     
     GameState.reset_state()
     
+
     transition.start_reversed()
+        
     await transition.finished
     
     answer_timer.timeout.connect(on_answer_timeout)

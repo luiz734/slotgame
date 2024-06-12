@@ -27,4 +27,9 @@ func _ready():
     play_button.clicked.connect(on_play_clicked)
     scores_button.clicked.connect(on_scores_pressed)
     quit_button.clicked.connect(on_quit_pressed)
+    
+    if Globals.game_just_run:
+        Globals.game_just_run = false
+        return
     transition.start_reversed()
+        
