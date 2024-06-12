@@ -11,7 +11,7 @@ func _ready():
     assert(animation_player, "Missing animation_player")
 
     _hide_position = global_position
-    _visible_position = global_position + Vector2(0, 1080)
+    _visible_position = global_position + Vector2(0, 1280)
     # owner.position = _hide_position
 
     Globals.slot_start.connect(func():

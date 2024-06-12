@@ -37,5 +37,15 @@ var wrong_answers: int = 0:
         wrong_answers = value
         state_changed.emit()
 
+var starts_amount: int = 0:
+    get:
+        return starts_amount
+    set(value):
+        starts_amount = value
+        state_changed.emit()
+
 func check_for_end():
     return wrong_answers >= 3 or correct_answers + wrong_answers == 10
+
+func _ready():
+    state_changed.emit()

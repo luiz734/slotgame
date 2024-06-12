@@ -5,9 +5,11 @@ extends Button
 
 func _ready():
     pressed.connect(func():
-        Globals.slot_start.emit()
-        _owner.start()
-        disabled = true
+        if GameState.starts_amount > 0:
+            Globals.slot_start.emit()
+            _owner.start()
+            disabled = true
+            GameState.starts_amount -= 1
     )
     Globals.slot_stopped.connect(func(tiles):
         disabled = false

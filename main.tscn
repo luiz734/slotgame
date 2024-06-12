@@ -203,7 +203,7 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(1, 1, 1, 0)
 script = ExtResource("10_acmwv")
-_overlay_color = Color(0, 0, 0, 0.329412)
+_overlay_color = Color(0, 0, 0, 0.85098)
 
 [node name="SlotMachine" parent="." instance=ExtResource("1_lyo8y")]
 z_index = 20

@@ -15,6 +15,8 @@ var current_question: Question = null
 
 func on_correct_answer(button: QuestionOption):
     answer_timer.stop()
+    GameState.starts_amount += answer_timer.get_pontuation()
+    
     await button.play_correct_answer_animation()
     await history.play_next_ball(true)
     
@@ -95,13 +97,15 @@ func go_to_next_question():
     add_child(new_question)
 
     #await get_tree().create_timer(0.4).timeout
-    await options_container.play_appear_animation()
+    #await options_container.play_appear_animation()
     
     current_question.queue_free()
     current_question = new_question
    
     var current_q: QuestionData = QuestionsDatabase.get_last_question()
     options_container.change_options_entries(current_q.options, current_q.correct) 
+    
+    await options_container.play_appear_animation()
     
     answer_timer.reset_timer()
     

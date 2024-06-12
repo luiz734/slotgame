@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://di41ccpbftbje"]
+[gd_scene load_steps=20 format=3 uid="uid://di41ccpbftbje"]
 
 [ext_resource type="Script" path="res://slot_machine/slot_machine.gd" id="1_jvnfs"]
 [ext_resource type="Script" path="res://slot_machine/slot_machine_animator.gd" id="2_jcs7i"]
@@ -10,6 +10,8 @@
 [ext_resource type="Texture2D" uid="uid://cpp2cmxnwga4t" path="res://ui/lever-ball.png" id="9_bafox"]
 [ext_resource type="Shader" path="res://shaders/blur.gdshader" id="9_osya4"]
 [ext_resource type="Script" path="res://slot_machine/slot_machine_button.gd" id="10_thqs5"]
+[ext_resource type="Script" path="res://slot_machine/stars_display.gd" id="11_s41tu"]
+[ext_resource type="Texture2D" uid="uid://ce17lbo8mvxlo" path="res://ui/big-star.png" id="12_jubdm"]
 
 [sub_resource type="Animation" id="Animation_hdl1u"]
 length = 0.001
@@ -58,6 +60,9 @@ viewport_path = NodePath("SubViewport")
 
 [sub_resource type="Gradient" id="Gradient_0ttn3"]
 colors = PackedColorArray(0.862745, 0.52549, 0, 1, 1, 0.682353, 0.168627, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_8wl61"]
+font_size = 100
 
 [node name="SlotMachine" type="Node2D"]
 script = ExtResource("1_jvnfs")
@@ -153,3 +158,21 @@ offset_bottom = 118.0
 focus_mode = 0
 flat = true
 script = ExtResource("10_thqs5")
+
+[node name="StarsDisplay" type="HBoxContainer" parent="."]
+offset_left = -429.0
+offset_top = -410.0
+offset_right = 413.0
+offset_bottom = -267.0
+theme_override_constants/separation = 40
+script = ExtResource("11_s41tu")
+
+[node name="Label" type="Label" parent="StarsDisplay"]
+layout_mode = 2
+text = "Você possui 0"
+label_settings = SubResource("LabelSettings_8wl61")
+
+[node name="Sprite2D" type="TextureRect" parent="StarsDisplay"]
+layout_mode = 2
+texture = ExtResource("12_jubdm")
+stretch_mode = 5
