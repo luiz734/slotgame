@@ -27,7 +27,6 @@ func on_wrong_answer():
 func on_answer_timeout():
     GameState.wrong_answers += 1
     go_to_next_question()
-    answer_timer.reset_timer()
 
 func _ready():
     assert(question_prefab, "Missing question_prefab")
@@ -63,6 +62,8 @@ func _ready():
 
     await get_tree().create_timer(0.4).timeout
     await options_container.play_appear_animation()
+    
+    answer_timer.reset_timer()
     # await get_tree().create_timer(0.4).timeout
     # options_container.play_hidde_animation()
 
@@ -84,14 +85,15 @@ func go_to_next_question():
     add_child(new_question)
 
     #await get_tree().create_timer(0.4).timeout
-    options_container.play_appear_animation()
+    await options_container.play_appear_animation()
     
     current_question.queue_free()
     current_question = new_question
    
     var current_q: QuestionData = QuestionsDatabase.get_last_question()
     options_container.change_options_entries(current_q.options, current_q.correct) 
-    #answer_timer.reset_timer()
+    
+    answer_timer.reset_timer()
     
 
 func _on_slot_machine_stopped(slots):
