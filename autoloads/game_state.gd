@@ -47,11 +47,11 @@ var starts_amount: int = 0:
 func reset_state():
     current_question = null
     avaliable_boosts = {
-        "2x": 0,
+        "2x": 1,
         "arrow_right": 0,
         "bomb": 0,
         "brain": 0,
-        "clock": 1,
+        "clock": 0,
         "double_arrow": 0,
     }
     correct_answers = 0
