@@ -13,6 +13,8 @@ var current_question: Question = null
 @onready var transition = %Transition
 @onready var history = %History
 
+var chances: int = 1
+
 func on_correct_answer(button: QuestionOption):
     answer_timer.stop()
     GameState.starts_amount += answer_timer.get_pontuation()
@@ -29,6 +31,11 @@ func on_correct_answer(button: QuestionOption):
 func on_wrong_answer(button: QuestionOption):
     answer_timer.stop()
     await button.play_wrong_answer_animation()
+    answer_timer.start()
+    chances -= 1
+    if chances > 0:
+        return
+    
     await history.play_next_ball(false)
 
     GameState.wrong_answers += 1
@@ -74,6 +81,8 @@ func _ready():
         if id == "arrow_right":
             answer_timer.stop()
             go_to_next_question()
+        elif  id == "double_arrow":
+            chances = 2
     )
     
     current_question = create_question()
@@ -95,6 +104,7 @@ func create_question() -> Question:
     return question
 
 func go_to_next_question():
+    chances = 1
     options_container.unhide_all_options()
     QuestionsDatabase.shuffle_question()
     

@@ -49,10 +49,10 @@ func reset_state():
     avaliable_boosts = {
         "2x": 0,
         "arrow_right": 0,
-        "bomb": 1,
+        "bomb": 0,
         "brain": 0,
         "clock": 0,
-        "double_arrow": 0,
+        "double_arrow": 1,
     }
     correct_answers = 0
     wrong_answers = 0

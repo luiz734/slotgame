@@ -32,6 +32,9 @@ func _ready():
 
 func stop():
     _enabled = false
+    
+func start():
+    _enabled = true
 
 func get_pontuation():
     assert(not _enabled, "Timer must be stopped before")
