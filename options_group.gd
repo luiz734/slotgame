@@ -37,7 +37,12 @@ func _ready():
             random_wrong.hide_all()
             count += 1
     )
-    
+func show_correct_answer():
+    for c in get_children():
+        if c.is_correct:
+            await c.play_correct_answer_animation()
+            return
+            
 func unhide_all_options():
     for c in get_children():
         c.unhide_all()

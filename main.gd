@@ -15,6 +15,8 @@ var current_question: Question = null
 
 var chances: int = 1
 
+var show_correct_answer = false
+
 func on_correct_answer(button: QuestionOption):
     answer_timer.stop()
     GameState.starts_amount += answer_timer.get_pontuation()
@@ -31,10 +33,15 @@ func on_correct_answer(button: QuestionOption):
 func on_wrong_answer(button: QuestionOption):
     answer_timer.stop()
     await button.play_wrong_answer_animation()
-    answer_timer.start()
+   
     chances -= 1
     if chances > 0:
+        answer_timer.start()
         return
+       
+    if show_correct_answer:
+        await options_container.show_correct_answer()
+        show_correct_answer = false
     
     await history.play_next_ball(false)
 
@@ -45,8 +52,12 @@ func on_wrong_answer(button: QuestionOption):
         get_tree().change_scene_to_packed(gameover_prefab)
 
 func on_answer_timeout():
+    await history.play_next_ball(false)
     GameState.wrong_answers += 1
     go_to_next_question()
+    if GameState.check_for_end():
+        var gameover_prefab = load("res://game_over.tscn")
+        get_tree().change_scene_to_packed(gameover_prefab)
 
 func _ready():    
     assert(question_prefab, "Missing question_prefab")
@@ -83,6 +94,8 @@ func _ready():
             go_to_next_question()
         elif  id == "double_arrow":
             chances = 2
+        elif id == "brain":
+            show_correct_answer = true
     )
     
     current_question = create_question()
@@ -105,6 +118,8 @@ func create_question() -> Question:
 
 func go_to_next_question():
     chances = 1
+    show_correct_answer = false
+    
     options_container.unhide_all_options()
     QuestionsDatabase.shuffle_question()
     

@@ -47,11 +47,17 @@ var starts_amount: int = 0:
 func reset_state():
     current_question = null
     avaliable_boosts = {
-        "2x": 0,
-        "arrow_right": 0,
-        "bomb": 0,
-        "brain": 0,
-        "clock": 0,
+        # doubles the next gain
+        "2x": 1,
+        # skip question
+        "arrow_right": 1,
+        # removes 2 answers
+        "bomb": 1,
+        # shows correct answer if fail
+        "brain": 1,
+        # pauses time for 10 sec
+        "clock": 1,
+        # lets you answer wrong once
         "double_arrow": 1,
     }
     correct_answers = 0
@@ -59,7 +65,7 @@ func reset_state():
     starts_amount = 0
 
 func check_for_end():
-    return wrong_answers >= 1 or correct_answers + wrong_answers == 10
+    return wrong_answers >= 3 or correct_answers + wrong_answers == 10
 
 func _ready():
     state_changed.emit()
