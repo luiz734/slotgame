@@ -95,6 +95,7 @@ func create_question() -> Question:
     return question
 
 func go_to_next_question():
+    options_container.unhide_all_options()
     QuestionsDatabase.shuffle_question()
     
     current_question.move_to_front()

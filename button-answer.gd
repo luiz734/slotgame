@@ -55,6 +55,16 @@ func _process(delta):
 func _on_mouse_entered():
     pass # Replace with function body.
 
+func unhide_all():
+    self_modulate = Color.WHITE
+    mouse_filter = MOUSE_FILTER_STOP
+    label.visible = true
+    
+func hide_all():
+    self_modulate = Color.TRANSPARENT
+    mouse_filter = MOUSE_FILTER_IGNORE
+    label.visible = false
+    
 func set_label(v: String):
     label.text = v
 

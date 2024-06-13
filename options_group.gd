@@ -23,6 +23,24 @@ func _ready():
             else:
                 wrong_answer.emit(data["button"])
         )
+    Globals.boost_used.connect(func(id):
+        if id != "bomb":
+            return
+        var options = get_children()
+        var count = 0
+        while count < 2:
+            var rand_index = randi() % len(options)
+            var random_wrong = options[rand_index]
+            options.remove_at(rand_index)
+            if random_wrong.is_correct:
+                continue
+            random_wrong.hide_all()
+            count += 1
+    )
+    
+func unhide_all_options():
+    for c in get_children():
+        c.unhide_all()
 
 func play_appear_animation():
     var tween = get_tree().create_tween()
