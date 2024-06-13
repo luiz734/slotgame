@@ -9,6 +9,8 @@ signal boost_sprite_done(id)
 signal overlay_on
 signal overlay_off
 
+signal boost_used(boost_id)
+
 func _process(delta):
     if Input.is_action_just_pressed("quit"):
         get_tree().quit(0)

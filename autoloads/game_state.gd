@@ -51,7 +51,7 @@ func reset_state():
         "arrow_right": 0,
         "bomb": 0,
         "brain": 0,
-        "clock": 0,
+        "clock": 1,
         "double_arrow": 0,
     }
     correct_answers = 0

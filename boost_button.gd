@@ -28,8 +28,10 @@ func _ready():
     _avaliable_uses = _avaliable_uses
     texture_normal = data.texture
     pressed.connect(func():
-        # debug
-        _avaliable_uses += 1      
+        var copy = GameState.avaliable_boosts
+        copy[data.id] -= 1
+        GameState.avaliable_boosts = copy         
+        Globals.boost_used.emit(data.id)  
     )
 
     mouse_entered.connect(func():
@@ -58,7 +60,7 @@ func _ready():
             if boost_id == data.id:
                 _avaliable_uses = GameState.avaliable_boosts[boost_id]   
     )
-    Globals.boost_sprite_done.connect(_on_boost_sprite_done)
+    #Globals.boost_sprite_done.connect(_on_boost_sprite_done)
 
 func _on_boost_sprite_done(id):
     if id == data.id:

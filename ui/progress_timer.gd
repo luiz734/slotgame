@@ -3,7 +3,7 @@ class_name AnswerTimer
 
 signal timeout
 
-var _timeout_sec: float = 30.0
+var _timeout_sec: float = 10.0
 var _enabled = false
 
 @onready var star_1: Sprite2D = $Star1
@@ -21,6 +21,11 @@ func _ready():
     assert(star_2, "Missing star_2 reference")
     assert(star_3, "Missing star_3 reference")
     value = max_value
+    Globals.boost_used.connect(func(id):
+        if id != "clock":
+            return
+        pause_10_seconds()
+    )
 
 func stop():
     _enabled = false
@@ -35,7 +40,12 @@ func update_stars():
     elif last_perc == 40:
         star_2.texture = SPRITE_EMPTY
     last_perc = stars_perc.pop_back()
-        
+
+func pause_10_seconds():
+    _enabled = false
+    await get_tree().create_timer(10.0).timeout
+    _enabled = true
+
     
 func _physics_process(delta):
     if not _enabled:
