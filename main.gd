@@ -70,6 +70,11 @@ func _ready():
     Globals.slot_stopped.connect(func(res):
         output.text = str(res)
     )
+    Globals.boost_used.connect(func(id):
+        if id == "arrow_right":
+            answer_timer.stop()
+            go_to_next_question()
+    )
     
     current_question = create_question()
     var current_q: QuestionData = QuestionsDatabase.get_last_question()
