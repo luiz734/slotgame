@@ -64,8 +64,8 @@ Um relatório sobre o desempenho da equipe
 scrum,medio
 Qual é a responsabilidade do proprietário do produto em Scrum?
 Desenvolver o software
-*Orientar a equipe técnica nas tarefas diárias
-Priorizar o backlog do produto e garantir que as necessidades do cliente sejam atendidas
+Orientar a equipe técnica nas tarefas diárias
+*Priorizar o backlog do produto e garantir que as necessidades do cliente sejam atendidas
 Facilitar as reuniões diárias
 
 scrum,dificil
@@ -84,7 +84,7 @@ Eficiência, Criatividade, Cooperação, Lealdade, Persistência
 
 xp,facil
 Qual é uma das práticas principais do Extreme Programming (XP)?
-Deve estar programando em par
+Planejamento da sprint
 Code review extensivo
 *Programação em par
 Entregar software apenas ao final do projeto
@@ -98,9 +98,9 @@ Uma prática para corrigir código mal escrito
 
 xp,medio
 O que é a "integração contínua" em XP?
-Prática de integração de código várias vezes ao dia para evitar conflitos
+*Prática de integração de código várias vezes ao dia para evitar conflitos
 Método de revisão periódica do código com o cliente
-*Estratégia de desenvolver e testar código apenas no final do projeto
+Estratégia de desenvolver e testar código apenas no final do projeto
 Uma técnica de planejamento para melhorar a comunicação entre as equipes
 
 xp,medio
@@ -176,8 +176,8 @@ Um quadro para registrar custos de um projeto
 kanban,facil
 Qual é um princípio do Kanban?
 Definir tarefas e não permitir mudanças
-*Focar em planejamentos longos
-Limitar o trabalho em andamento
+Focar em planejamentos longos
+*Limitar o trabalho em andamento
 Promover múltiplas tarefas simultâneas
 
 kanban,medio
