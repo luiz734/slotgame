@@ -1,7 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://foxe13v4vmuw"]
+[gd_scene load_steps=10 format=3 uid="uid://foxe13v4vmuw"]
 
 [ext_resource type="Texture2D" uid="uid://d4curkghjrh8y" path="res://ui/button.png" id="1_ufsfw"]
 [ext_resource type="Script" path="res://button-answer.gd" id="2_gef8q"]
+[ext_resource type="AudioStream" uid="uid://pnwpgkd2dy4l" path="res://sound/correct.mp3" id="3_n16ew"]
+[ext_resource type="AudioStream" uid="uid://cqtni5po4uaac" path="res://sound/wrong.mp3" id="4_2i0i2"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_2yfp1"]
 font_size = 32
@@ -115,5 +117,11 @@ mouse_filter = 2
 libraries = {
 "": SubResource("AnimationLibrary_40rft")
 }
+
+[node name="Correct" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_n16ew")
+
+[node name="Wrong" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_2i0i2")
 
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
