@@ -111,6 +111,7 @@ layout_mode = 2
 unique_name_in_owner = true
 
 [node name="Roll" type="Button" parent="."]
+visible = false
 offset_left = 1106.0
 offset_top = 1022.0
 offset_right = 1246.0
@@ -129,6 +130,7 @@ theme_override_font_sizes/normal_font_size = 20
 text = "none"
 
 [node name="state_viewer" type="RichTextLabel" parent="."]
+visible = false
 offset_left = 1404.0
 offset_top = 217.0
 offset_right = 1856.0
