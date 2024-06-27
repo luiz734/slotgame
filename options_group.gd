@@ -10,9 +10,11 @@ signal wrong_answer(button)
 func change_options_entries(options_str, correct_index):
     var options = get_children()
     for i in range(len(options)):
+        options[i].is_correct = false
         options[i].set_label(options_str[i])
         if i == correct_index:
-            options[i].is_correct = true   
+            options[i].is_correct = true
+            print(correct_index)   
 
 func _ready():
     position = _hidden_position
