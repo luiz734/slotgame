@@ -89,6 +89,7 @@ layout_mode = 2
 label_text = "Play"
 
 [node name="SCORES" parent="Background/Options" instance=ExtResource("4_e62i3")]
+visible = false
 layout_mode = 2
 label_text = "Scores"
 

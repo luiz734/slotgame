@@ -67,6 +67,7 @@ func _ready():
     assert(answer_timer, "Missing answer_timer reference")
     assert(transition, "Missing transition reference")
     
+    Globals.game_start.emit()
     GameState.reset_state()
     
 

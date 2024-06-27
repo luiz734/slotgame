@@ -11,6 +11,8 @@ signal overlay_off
 
 signal boost_used(boost_id)
 
+signal game_start
+
 func _process(delta):
     if Input.is_action_just_pressed("quit"):
         get_tree().quit(0)
