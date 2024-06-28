@@ -1,9 +1,0 @@
-[gd_resource type="Resource" script_class="QuestionData" load_steps=2 format=3]
-
-[ext_resource type="Script" path="res://question/question_data.gd" id="1_lf4hn"]
-
-[resource]
-script = ExtResource("1_lf4hn")
-question = "Qual é a responsabilidade do proprietário do produto em Scrum?"
-options = ["Desenvolver o software", "Orientar a equipe técnica nas tarefas diárias", "Priorizar o backlog do produto e garantir que as necessidades do cliente sejam atendidas", "Facilitar as reuniões diárias"]
-correct = 1

@@ -1,9 +1,0 @@
-[gd_resource type="Resource" script_class="QuestionData" load_steps=2 format=3]
-
-[ext_resource type="Script" path="res://question/question_data.gd" id="1_wcgrc"]
-
-[resource]
-script = ExtResource("1_wcgrc")
-question = "Quem é um dos principais autores do Extreme Programming?"
-options = ["Martin Fowler", "Kent Beck", "Robert C. Martin", "Ward Cunningham"]
-correct = 1

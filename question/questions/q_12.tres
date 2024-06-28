@@ -1,9 +1,0 @@
-[gd_resource type="Resource" script_class="QuestionData" load_steps=2 format=3]
-
-[ext_resource type="Script" path="res://question/question_data.gd" id="1_5uqxh"]
-
-[resource]
-script = ExtResource("1_5uqxh")
-question = "Quais são os cinco valores de Scrum?"
-options = ["Honestidade, Excelência, Flexibilidade, Colaboração, Integridade", "Coragem, Foco, Compromisso, Respeito, Abertura", "Competência, Autonomia, Responsabilidade, Justiça, Transparência", "Eficiência, Criatividade, Cooperação, Lealdade, Persistência"]
-correct = 1

@@ -1,9 +1,0 @@
-[gd_resource type="Resource" script_class="QuestionData" load_steps=2 format=3]
-
-[ext_resource type="Script" path="res://question/question_data.gd" id="1_i6den"]
-
-[resource]
-script = ExtResource("1_i6den")
-question = "Qual é uma vantagem de usar Kanban?"
-options = ["Desorganizar o trabalho para torná-lo mais criativo", "Aumentar a complexidade dos projetos", "Melhorar a visualização e gestão do fluxo de trabalho", "Centralizar todas as decisões em um gerente"]
-correct = 2

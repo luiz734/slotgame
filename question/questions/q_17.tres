@@ -1,9 +1,0 @@
-[gd_resource type="Resource" script_class="QuestionData" load_steps=2 format=3]
-
-[ext_resource type="Script" path="res://question/question_data.gd" id="1_3ycyr"]
-
-[resource]
-script = ExtResource("1_3ycyr")
-question = "O que é a \"metáfora\" em XP?"
-options = ["Um recurso literário para explicar o software", "Um padrão de código para estruturar classes e funções", "Uma técnica para descrever como o software deve funcionar", "Um processo de codificação simbólica"]
-correct = 2

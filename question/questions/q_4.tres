@@ -1,9 +1,0 @@
-[gd_resource type="Resource" script_class="QuestionData" load_steps=2 format=3]
-
-[ext_resource type="Script" path="res://question/question_data.gd" id="1_18ppv"]
-
-[resource]
-script = ExtResource("1_18ppv")
-question = "Qual é a medida primária de progresso segundo o Manifesto Ágil?"
-options = ["Quantidade de documentação produzida", "Número de reuniões concluídas", "Software funcionando", "A satisfação do cliente"]
-correct = 2

@@ -1,9 +1,0 @@
-[gd_resource type="Resource" script_class="QuestionData" load_steps=2 format=3]
-
-[ext_resource type="Script" path="res://question/question_data.gd" id="1_fvdij"]
-
-[resource]
-script = ExtResource("1_fvdij")
-question = "Quantos princípios fundamentam o Manifesto Ágil?"
-options = ["10", "12", "14", "16"]
-correct = 1

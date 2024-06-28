@@ -1,9 +1,0 @@
-[gd_resource type="Resource" script_class="QuestionData" load_steps=2 format=3]
-
-[ext_resource type="Script" path="res://question/question_data.gd" id="1_fpno3"]
-
-[resource]
-script = ExtResource("1_fpno3")
-question = "O que é \"Just-in-time\" em Lean?"
-options = ["Uma prática que visa a entrega de produtos com antecedência", "Uma técnica para armazenamento de materiais em excesso", "Um método de produção que busca minimizar estoques", "Uma abordagem para empilhar produtos para futuras vendas"]
-correct = 2
