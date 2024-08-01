@@ -1,9 +1,9 @@
 [gd_resource type="Resource" script_class="QuestionData" load_steps=2 format=3]
 
-[ext_resource type="Script" path="res://question/question_data.gd" id="1_mxqjd"]
+[ext_resource type="Script" path="res://question/question_data.gd" id="1_lx8d0"]
 
 [resource]
-script = ExtResource("1_mxqjd")
+script = ExtResource("1_lx8d0")
 question = "Quantas pessoas assinaram o Manifesto Ágil originalmente?"
 options = ["10", "17", "25", "32"]
 correct = 1

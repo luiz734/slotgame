@@ -1,9 +1,9 @@
 [gd_resource type="Resource" script_class="QuestionData" load_steps=2 format=3]
 
-[ext_resource type="Script" path="res://question/question_data.gd" id="1_sprnj"]
+[ext_resource type="Script" path="res://question/question_data.gd" id="1_3bvt6"]
 
 [resource]
-script = ExtResource("1_sprnj")
+script = ExtResource("1_3bvt6")
 question = "Qual é o principal objetivo do Lean?"
 options = ["Maximize o lucro sem considerar os clientes", "Reduzir custos ignorando a qualidade", "Melhorar a eficiência mantendo a qualidade e satisfação do cliente", "Criar produtos de baixa qualidade para economizar recursos"]
 correct = 2

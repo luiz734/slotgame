@@ -1,9 +1,9 @@
 [gd_resource type="Resource" script_class="QuestionData" load_steps=2 format=3]
 
-[ext_resource type="Script" path="res://question/question_data.gd" id="1_pb73l"]
+[ext_resource type="Script" path="res://question/question_data.gd" id="1_7ifqc"]
 
 [resource]
-script = ExtResource("1_pb73l")
+script = ExtResource("1_7ifqc")
 question = "Qual é a duração típica de um sprint em Scrum?"
 options = ["1 semana", "1 a 4 semanas", "3 meses", "6 meses"]
 correct = 1

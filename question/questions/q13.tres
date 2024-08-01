@@ -1,9 +1,9 @@
 [gd_resource type="Resource" script_class="QuestionData" load_steps=2 format=3]
 
-[ext_resource type="Script" path="res://question/question_data.gd" id="1_v3ppw"]
+[ext_resource type="Script" path="res://question/question_data.gd" id="1_j06r0"]
 
 [resource]
-script = ExtResource("1_v3ppw")
+script = ExtResource("1_j06r0")
 question = "Qual é uma das práticas principais do Extreme Programming (XP)?"
-options = ["Deve estar programando em par", "Code review extensivo", "Programação em par", "Entregar software apenas ao final do projeto"]
+options = ["Planejamento da sprint", "Code review extensivo", "Programação em par", "Entregar software apenas ao final do projeto"]
 correct = 2

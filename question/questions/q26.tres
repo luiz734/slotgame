@@ -1,9 +1,9 @@
 [gd_resource type="Resource" script_class="QuestionData" load_steps=2 format=3]
 
-[ext_resource type="Script" path="res://question/question_data.gd" id="1_r7b6v"]
+[ext_resource type="Script" path="res://question/question_data.gd" id="1_50h06"]
 
 [resource]
-script = ExtResource("1_r7b6v")
+script = ExtResource("1_50h06")
 question = "Qual é um princípio do Kanban?"
 options = ["Definir tarefas e não permitir mudanças", "Focar em planejamentos longos", "Limitar o trabalho em andamento", "Promover múltiplas tarefas simultâneas"]
-correct = 1
+correct = 2

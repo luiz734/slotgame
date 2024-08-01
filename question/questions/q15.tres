@@ -1,9 +1,9 @@
 [gd_resource type="Resource" script_class="QuestionData" load_steps=2 format=3]
 
-[ext_resource type="Script" path="res://question/question_data.gd" id="1_4lu5d"]
+[ext_resource type="Script" path="res://question/question_data.gd" id="1_6xsmw"]
 
 [resource]
-script = ExtResource("1_4lu5d")
+script = ExtResource("1_6xsmw")
 question = "O que é a \"integração contínua\" em XP?"
 options = ["Prática de integração de código várias vezes ao dia para evitar conflitos", "Método de revisão periódica do código com o cliente", "Estratégia de desenvolver e testar código apenas no final do projeto", "Uma técnica de planejamento para melhorar a comunicação entre as equipes"]
-correct = 2
+correct = 0
