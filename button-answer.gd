@@ -15,6 +15,8 @@ const CORRECT_COLOR: Color = Color("#6eff61")
 @onready var hitbox = $Hitbox
 @onready var label = $MarginContainer/Label
 @onready var animation_player = $AnimationPlayer
+@onready var sound_correct: AudioStreamPlayer = $Correct
+@onready var sound_wrong: AudioStreamPlayer = $Wrong
 
 var is_correct: bool = false:
     set(value):
@@ -73,11 +75,13 @@ func reset_modulate():
 
 func play_correct_answer_animation():
     animation_player.play("correct_answer")
+    sound_correct.play()
     await animation_player.animation_finished
     modulate = Color.WHITE
     
 func play_wrong_answer_animation():
     animation_player.play("wrong_answer")
+    sound_wrong.play()
     await animation_player.animation_finished
     modulate = Color.WHITE
     
